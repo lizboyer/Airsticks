@@ -1,0 +1,5 @@
+1x STM32G441KBT6 MCU 			Package: LQFP32
+2x LSM6DSOTR Accelerometer		Package: LGA-14L
+1x PAM8302A SOP-8 amplifier 		Package: 8-SOP
+
+https://docs.google.com/document/d/1F6IFfFDmQdCp_FN94t7RxGAuAL7oqS0MHDCbRtq8e3U/edit

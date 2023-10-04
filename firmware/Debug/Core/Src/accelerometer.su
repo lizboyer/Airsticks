@@ -1,0 +1,3 @@
+../Core/Src/accelerometer.c:20:6:acc_init	16	static
+../Core/Src/accelerometer.c:46:6:read_axis	32	static
+../Core/Src/accelerometer.c:88:6:accelerometer_write	32	static

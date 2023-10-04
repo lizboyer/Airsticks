@@ -18,115 +18,50 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "accelerometer.h"
 
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 
+/* USER CODE END Includes */
 
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
 
-/************************** DEVICE ADDRESSES **************************/
-#define ACC0_W_ADDR			0xd4
-#define ACC0_R_ADDR			0xd5
-#define ACC1_W_ADDR			0xd6
-#define ACC1_R_ADDR			0xd7
+/* USER CODE END PTD */
 
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
 
-/************************** DEVICE REGISTERS **************************/
-#define REG_CTRL1_XL		0x10
-#define REG_CTRL2_G			0x11
-#define REG_INT1_CTRL 		0x0d
-#define REG_INT2_CTRL 		0x0e
+/* USER CODE END PD */
 
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
 
-/************************** REGISTER CONFIGS **************************/
-#define ACC_104HZ_2G		0x40
-#define GYRO_OFF			0x00
-#define DATA_RDY			0x01
+/* USER CODE END PM */
 
-#define OUTX_L_A			0x28
-#define OUTX_H_A			0x29
-#define OUTY_L_A			0x2a
-#define OUTY_H_A			0x2b
-#define OUTZ_L_A			0x2c
-#define OUTZ_H_A			0x2d
-
-
-/**************************** TYPEDEFS ********************************/
+/* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
-typedef enum axis {
-	X_AXIS,
-	Y_AXIS,
-	Z_AXIS,
-	ALL_AXIS
-} axis_t;
 
-typedef struct accelerometer_t {
-	  int16_t x_measurement;
-	  int16_t y_measurement;
-	  int16_t z_measurement;
-	  int8_t  slave_r_addr;
-	  int8_t  slave_w_addr;
-} accelerometer_t;
+/* USER CODE BEGIN PV */
 
+/* USER CODE END PV */
 
-/************************** GLOBAL VARIABLES ***************************/
-I2C_HandleTypeDef hi2c1;
-static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
-static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
-
-
-
-
-/************************ FUNCTION PROTOTYPES **************************/
-I2C_HandleTypeDef hi2c1;
+/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
+/* USER CODE BEGIN PFP */
 
+/* USER CODE END PFP */
 
-/*
- * read_axis
- * inputs:
- * 		- axis_t axis: enumerator representing the axis to read
- * returns:
- * 		- a signed 16-bit integer representing +-MAX_ACCELERATION at each of
- * 		  the respective bounds
- **/
-static void read_axis(accelerometer_t* acc, axis_t axis)
-{
-	  static uint8_t read_buffer[] = { 0 };
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
 
-	  switch(axis){
-	  	  case ALL_AXIS:
-	  	  case X_AXIS:
-	  		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTX_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-	  		  acc->x_measurement = *read_buffer << 8;
-			  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTX_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-			  acc->x_measurement = acc->x_measurement + *read_buffer;
-			  if(axis != ALL_AXIS) break;
-	  	  case Y_AXIS:
-	  		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTY_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-	  		  acc->y_measurement = *read_buffer << 8;
-	  		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTY_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-	  		  acc->y_measurement = acc->y_measurement + *read_buffer;
-	  		  if(axis != ALL_AXIS) break;
-	  	  case Z_AXIS:
-	  		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTZ_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-	  		  acc->z_measurement = *read_buffer << 8;
-	  		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTZ_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-	  		  acc->z_measurement = acc->z_measurement + *read_buffer;
-	  		  break;
-	  }
+static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
 
-	  return;
-}
-
-static void accelerometer_write(accelerometer_t* acc, int8_t reg, int8_t data)
-{
-	static uint8_t write_buffer[] = { 0 };
-
-	*write_buffer = data;
-	HAL_I2C_Mem_Write(&hi2c1, acc->slave_w_addr, reg, I2C_MEMADD_SIZE_8BIT, write_buffer, sizeof(write_buffer), HAL_MAX_DELAY);
-}
-
+/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
@@ -135,39 +70,49 @@ static void accelerometer_write(accelerometer_t* acc, int8_t reg, int8_t data)
 int main(void)
 {
 
-  /* HAL and peripheral initialization */
+
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
   SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_I2C1_Init();
+  /* USER CODE BEGIN 2 */
+  acc_init(&xl_l);
+  acc_init(&xl_r);
+  /* USER CODE END 2 */
 
-
-  // configure the accelerometer to 104Hz
-  accelerometer_write(&xl_r, REG_CTRL1_XL, ACC_104HZ_2G);
-  accelerometer_write(&xl_l, REG_CTRL1_XL, ACC_104HZ_2G);
-
-
-  // turn the gyroscope off
-  accelerometer_write(&xl_r, REG_CTRL2_G, GYRO_OFF);
-  accelerometer_write(&xl_l, REG_CTRL2_G, GYRO_OFF);
-
-
-  // enable interrupts on new data on accelerometer INT2
-  accelerometer_write(&xl_r, REG_INT2_CTRL, DATA_RDY);
-  accelerometer_write(&xl_l, REG_INT2_CTRL, DATA_RDY);
-
-  int total = 0;
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  int32_t total = 0;
   while (1)
   {
-	  // poll the accelerometer
-
+    /* USER CODE END WHILE */
 	  read_axis(&xl_r, ALL_AXIS);
 
 	  total = xl_r.x_measurement + xl_r.y_measurement + xl_r.z_measurement;
-
+	  total = total;
 	  HAL_Delay(250);
-
+    /* USER CODE BEGIN 3 */
   }
+  /* USER CODE END 3 */
 }
 
 /**
@@ -273,18 +218,63 @@ static void MX_I2C1_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : ACC_INT0_Pin ACC_INT1_Pin */
+  GPIO_InitStruct.Pin = ACC_INT0_Pin|ACC_INT1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_1_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	switch(GPIO_Pin)
+	{
+		case GPIO_PIN_0:
+			read_axis(&xl_r, ALL_AXIS);
+			if(xl_r.z_measurement < 0)
+			{
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+			}
+			else
+			{
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
+			}
+			break;
+		case GPIO_PIN_1:
+			read_axis(&xl_l, ALL_AXIS);
+			break;
+		default:
+			__NOP();
+			break;
+	}
+	return;
+}
 /* USER CODE END 4 */
 
 /**

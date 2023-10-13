@@ -111,5 +111,6 @@ HAL_StatusTypeDef accelerometer_write(volatile accelerometer_t* acc, uint8_t reg
 	*write_buffer = data;
 	HAL_StatusTypeDef status = HAL_I2C_Mem_Write(&hi2c1, acc->slave_w_addr, reg, I2C_MEMADD_SIZE_8BIT, write_buffer, sizeof(write_buffer), HAL_MAX_DELAY);
 	__enable_irq();
+	return status;
 }
 

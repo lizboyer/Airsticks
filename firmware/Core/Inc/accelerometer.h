@@ -51,6 +51,7 @@ typedef struct accelerometer_t {
 	int64_t x_pos;
 	int64_t y_pos;
 	int64_t z_pos;
+	uint16_t irq_pin;
 } accelerometer_t;
 
 

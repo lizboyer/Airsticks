@@ -51,6 +51,9 @@ HAL_StatusTypeDef acc_init (volatile accelerometer_t* acc)
  **/
 HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis)
 {
+
+	__disable_irq();
+
     static uint8_t read_buffer[] = { 0 };
 
     HAL_StatusTypeDef status = HAL_OK;
@@ -83,6 +86,8 @@ HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis)
 		  break;
 	}
 
+    __enable_irq();
+
     return status;
 }
 
@@ -101,8 +106,10 @@ HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis)
  **/
 HAL_StatusTypeDef accelerometer_write(volatile accelerometer_t* acc, uint8_t reg, uint8_t data)
 {
+	__disable_irq();
     uint8_t write_buffer[] = { 0 };
 	*write_buffer = data;
-	return HAL_I2C_Mem_Write(&hi2c1, acc->slave_w_addr, reg, I2C_MEMADD_SIZE_8BIT, write_buffer, sizeof(write_buffer), HAL_MAX_DELAY);
+	HAL_StatusTypeDef status = HAL_I2C_Mem_Write(&hi2c1, acc->slave_w_addr, reg, I2C_MEMADD_SIZE_8BIT, write_buffer, sizeof(write_buffer), HAL_MAX_DELAY);
+	__enable_irq();
 }
 

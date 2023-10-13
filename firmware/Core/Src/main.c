@@ -13,8 +13,8 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 
-static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
-static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
 
 
 
@@ -25,6 +25,7 @@ static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .sla
 int main(void)
 {
 
+
   HAL_Init();
   SystemClock_Config();
   MX_GPIO_Init();
@@ -33,14 +34,9 @@ int main(void)
   acc_init(&xl_l);
   acc_init(&xl_r);
 
-  uint8_t write_buffer = { 0x40 };
-
-  HAL_StatusTypeDef status = HAL_I2C_Mem_Write(&hi2c1, 0xd4, 0x10, I2C_MEMADD_SIZE_8BIT, write_buffer, sizeof(write_buffer), HAL_MAX_DELAY);
-
   while (1)
   {
-
-	if(xl_r.x_xlr < 0)
+	if(xl_r.z_xlr < 0)
 	{
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 	}
@@ -48,9 +44,7 @@ int main(void)
 	{
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
 	}
-
   }
-
 }
 
 /**
@@ -184,22 +178,14 @@ static void MX_GPIO_Init(void)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	static HAL_StatusTypeDef status;
-	switch(GPIO_Pin)
-	{
-		case GPIO_PIN_0:
-			status = read_axis(&xl_r, ALL_AXIS);
-			break;
-		case GPIO_PIN_1:
-			status = read_axis(&xl_l, ALL_AXIS);
-			break;
-		default:
-			__NOP();
-			break;
-	}
 
-	if(status != HAL_OK)
+	if(xl_r.irq_pin == GPIO_Pin)
 	{
-		__NOP();
+		status = read_axis(&xl_r, ALL_AXIS);
+	}
+	if(xl_l.irq_pin == GPIO_Pin)
+	{
+		status = read_axis(&xl_l, ALL_AXIS);
 	}
 
 	return;

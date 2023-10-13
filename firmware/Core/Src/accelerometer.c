@@ -3,7 +3,7 @@
  */
 
 #include "accelerometer.h"
-#include "stm32l0xx_hal.h"
+#include "stm32l0xx.h"
 #include <stdint.h>
 
 extern I2C_HandleTypeDef hi2c1;
@@ -13,21 +13,27 @@ extern I2C_HandleTypeDef hi2c1;
  * inputs:
  * 		- accelerometer_t acc: pointer to the accelerometer to initialize
  * returns:
- * 		- none
+ * 		- HAL Status
  * side effects:
  * 		- configure the accelerometer to 100Hz polling, and turn off gyro
  **/
-void acc_init (accelerometer_t* acc)
+HAL_StatusTypeDef acc_init (volatile accelerometer_t* acc)
 {
 
+	HAL_StatusTypeDef status = HAL_OK;
+
 	// configure the accelerometer to 104Hz
-	accelerometer_write(acc, REG_CTRL1_XL, ACC_104HZ_2G);
+	status = accelerometer_write(acc, REG_CTRL1_XL, ACC_104HZ_2G);
+	if(status != HAL_OK) return status;
 
 	// turn the gyroscope off
-	accelerometer_write(acc, REG_CTRL2_G, GYRO_OFF);
+	status = accelerometer_write(acc, REG_CTRL2_G, GYRO_OFF);
+	if (status != HAL_OK) return status;
 
 	// enable interrupts on new data on accelerometer INT2
-    accelerometer_write(acc, REG_INT2_CTRL, DATA_RDY);
+    status = accelerometer_write(acc, REG_INT2_CTRL, DATA_RDY);
+
+    return status;
 
 }
 
@@ -39,37 +45,45 @@ void acc_init (accelerometer_t* acc)
  * 				which to read the acceleration values
  * 		- axis_t axis: enumerator representing the axis to read
  * returns:
- * 		- none
+ * 		- HAL Status
  * 	side effects:
  * 		- updates the acceleration values inside the accelerometer struct
  **/
-void read_axis(accelerometer_t* acc, axis_t axis)
+HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis)
 {
     static uint8_t read_buffer[] = { 0 };
+
+    HAL_StatusTypeDef status = HAL_OK;
 
     switch(axis){
 	  case ALL_AXIS:
 	  case X_AXIS:
-		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTX_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-		  acc->x_measurement = *read_buffer << 8;
-		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTX_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-		  acc->x_measurement = acc->x_measurement + *read_buffer;
+		  status = HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTX_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+		  if(status != HAL_OK) break;
+		  acc->x_xlr = *read_buffer << 8;
+		  status = HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTX_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+		  if(status != HAL_OK) break;
+		  acc->x_xlr = acc->x_xlr + *read_buffer;
 		  if(axis != ALL_AXIS) break;
 	  case Y_AXIS:
-		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTY_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-		  acc->y_measurement = *read_buffer << 8;
-		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTY_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-		  acc->y_measurement = acc->y_measurement + *read_buffer;
+		  status = HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTY_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+		  if(status != HAL_OK) break;
+		  acc->y_xlr = *read_buffer << 8;
+		  status = HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTY_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+		  if(status != HAL_OK) break;
+		  acc->y_xlr = acc->y_xlr + *read_buffer;
 		  if(axis != ALL_AXIS) break;
 	  case Z_AXIS:
-		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTZ_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-		  acc->z_measurement = *read_buffer << 8;
-		  HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTZ_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
-		  acc->z_measurement = acc->z_measurement + *read_buffer;
+		  status = HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTZ_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+		  if(status != HAL_OK) break;
+		  acc->z_xlr = *read_buffer << 8;
+		  status = HAL_I2C_Mem_Read(&hi2c1, acc->slave_r_addr, OUTZ_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+		  if(status != HAL_OK) break;
+		  acc->z_xlr = acc->z_xlr + *read_buffer;
 		  break;
 	}
 
-    return;
+    return status;
 }
 
 
@@ -81,15 +95,14 @@ void read_axis(accelerometer_t* acc, axis_t axis)
  * 		- int8_t reg: the register within the accelerometer to write to
  * 		- int8_t data: the data to write
  * returns:
- * 		- none
+ * 		- HAL Status
  * 	side effects:
  * 		- performs and I2C write to the passed in accelerometer
  **/
-void accelerometer_write(accelerometer_t* acc, int8_t reg, int8_t data)
+HAL_StatusTypeDef accelerometer_write(volatile accelerometer_t* acc, uint8_t reg, uint8_t data)
 {
-    static uint8_t write_buffer[] = { 0 };
-
+    uint8_t write_buffer[] = { 0 };
 	*write_buffer = data;
-	HAL_I2C_Mem_Write(&hi2c1, acc->slave_w_addr, reg, I2C_MEMADD_SIZE_8BIT, write_buffer, sizeof(write_buffer), HAL_MAX_DELAY);
+	return HAL_I2C_Mem_Write(&hi2c1, acc->slave_w_addr, reg, I2C_MEMADD_SIZE_8BIT, write_buffer, sizeof(write_buffer), HAL_MAX_DELAY);
 }
 

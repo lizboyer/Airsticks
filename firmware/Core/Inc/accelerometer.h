@@ -31,6 +31,7 @@
 #define OUTZ_L_A			0x2c
 #define OUTZ_H_A			0x2d
 
+#include "stm32l0xx.h"
 #include <stdint.h>
 
 /**************************** TYPEDEFS ********************************/
@@ -42,11 +43,14 @@ typedef enum axis {
 } axis_t;
 
 typedef struct accelerometer_t {
-	  int16_t x_measurement;
-	  int16_t y_measurement;
-	  int16_t z_measurement;
-	  int8_t  slave_r_addr;
-	  int8_t  slave_w_addr;
+	uint8_t slave_r_addr;
+	uint8_t slave_w_addr;
+	int16_t x_xlr;
+	int16_t y_xlr;
+	int16_t z_xlr;
+	int64_t x_pos;
+	int64_t y_pos;
+	int64_t z_pos;
 } accelerometer_t;
 
 
@@ -61,7 +65,7 @@ typedef struct accelerometer_t {
  * side effects:
  * 		- configure the accelerometer to 100Hz polling, and turn off gyro
  */
-extern void acc_init			(accelerometer_t* acc);
+extern HAL_StatusTypeDef acc_init(volatile accelerometer_t* acc);
 
 /*
  * read_axis
@@ -74,7 +78,7 @@ extern void acc_init			(accelerometer_t* acc);
  * 	side effects:
  * 		- updates the acceleration values inside the accelerometer struct
  **/
-extern void read_axis			(accelerometer_t* acc, axis_t axis);
+extern HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis);
 
 
 /*
@@ -89,7 +93,7 @@ extern void read_axis			(accelerometer_t* acc, axis_t axis);
  * 	side effects:
  * 		- performs and I2C write to the passed in accelerometer
  **/
-extern void accelerometer_write(accelerometer_t* acc, int8_t reg, int8_t data);
+extern HAL_StatusTypeDef accelerometer_write(volatile accelerometer_t* acc, uint8_t reg, uint8_t data);
 
 
 #endif /* INC_ACCELEROMETER_H_ */

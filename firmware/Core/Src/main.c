@@ -5,17 +5,20 @@
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
+TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim21;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_TIM2_Init(void);
+static void MX_TIM21_Init(void);
+
 
 /* Private user code ---------------------------------------------------------*/
-
 static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
 static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
-
 
 
 /**
@@ -30,18 +33,22 @@ int main(void)
   SystemClock_Config();
   MX_GPIO_Init();
   MX_I2C1_Init();
+  MX_TIM2_Init();
+  MX_TIM21_Init();
 
   acc_init(&xl_l);
   acc_init(&xl_r);
 
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+
+  // start polling the accelerometer(s)
+  HAL_TIM_Base_Start_IT(&htim21);
+
   while (1)
   {
-	if(xl_r.z_xlr < 0)
+	if(xl_r.z_xlr < -0x1000)
 	{
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
-	}
-	else
-	{
+		HAL_TIM_Base_Start_IT(&htim2);
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
 	}
   }
@@ -191,6 +198,96 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	return;
 }
 
+/**
+  * @brief Timer Callback function
+  * @param htim - the timer that triggered the callback
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+
+  static HAL_StatusTypeDef status;
+
+  // Check which version of the timer triggered this callback and toggle LED
+  if (htim == &htim2)
+  {
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+  }
+  if (htim == &htim21)
+  {
+	  status = read_axis(&xl_r, ALL_AXIS);
+  }
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 243;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_DOWN;
+  htim2.Init.Period = 65535 / 2;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+}
+
+/**
+  * @brief TIM21 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM21_Init(void)
+{
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  htim21.Instance = TIM21;
+  htim21.Init.Prescaler = 15999;
+  htim21.Init.CounterMode = TIM_COUNTERMODE_DOWN;
+  htim21.Init.Period = 1;
+  htim21.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim21.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim21) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim21, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim21, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.
@@ -222,3 +319,4 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+

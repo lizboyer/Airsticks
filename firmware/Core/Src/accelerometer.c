@@ -32,6 +32,10 @@ HAL_StatusTypeDef acc_init (volatile accelerometer_t* acc)
 
 	// enable interrupts on new data on accelerometer INT2
     status = accelerometer_write(acc, REG_INT2_CTRL, DATA_RDY);
+    if (status != HAL_OK) return status;
+
+    // read the axes to get interrupts to kick off
+    status = read_axis(acc, ALL_AXIS);
 
     return status;
 

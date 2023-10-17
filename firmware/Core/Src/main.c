@@ -7,6 +7,7 @@
 I2C_HandleTypeDef hi2c1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim21;
+UART_HandleTypeDef hlpuart1;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
@@ -14,12 +15,12 @@ static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM21_Init(void);
-
+static void MX_LPUART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
 static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
-
+static volatile HAL_StatusTypeDef status;
 
 /**
   * @brief  The application entry point.
@@ -33,11 +34,13 @@ int main(void)
   SystemClock_Config();
   MX_GPIO_Init();
   MX_I2C1_Init();
-  MX_TIM2_Init();
-  MX_TIM21_Init();
+  MX_LPUART1_UART_Init();
 
   acc_init(&xl_l);
   acc_init(&xl_r);
+
+  MX_TIM2_Init();
+  MX_TIM21_Init();
 
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 
@@ -143,9 +146,27 @@ static void MX_I2C1_Init(void)
 }
 
 /**
+  * @brief LPUART1 Initialization Function
+  */
+static void MX_LPUART1_UART_Init(void)
+{
+  hlpuart1.Instance = LPUART1;
+  hlpuart1.Init.BaudRate = 19200;
+  hlpuart1.Init.WordLength = UART_WORDLENGTH_8B;
+  hlpuart1.Init.StopBits = UART_STOPBITS_1;
+  hlpuart1.Init.Parity = UART_PARITY_NONE;
+  hlpuart1.Init.Mode = UART_MODE_TX_RX;
+  hlpuart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  hlpuart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  hlpuart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&hlpuart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
   * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
   */
 static void MX_GPIO_Init(void)
 {
@@ -184,11 +205,11 @@ static void MX_GPIO_Init(void)
   */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	static HAL_StatusTypeDef status;
 
 	if(xl_r.irq_pin == GPIO_Pin)
 	{
 		status = read_axis(&xl_r, ALL_AXIS);
+
 	}
 	if(xl_l.irq_pin == GPIO_Pin)
 	{
@@ -206,7 +227,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 
-  static HAL_StatusTypeDef status;
+  uint8_t msg[25] = "test\n";
 
   // Check which version of the timer triggered this callback and toggle LED
   if (htim == &htim2)
@@ -216,13 +237,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   if (htim == &htim21)
   {
 	  status = read_axis(&xl_r, ALL_AXIS);
+//	  sprintf(msg, "%d,%d,%d", xl_r.x_xlr, xl_r.y_xlr, xl_r.z_xlr);
+//	  HAL_UART_Transmit(&hlpuart1, msg, sizeof(msg), 10);
   }
 }
 
 /**
   * @brief TIM2 Initialization Function
-  * @param None
-  * @retval None
   */
 static void MX_TIM2_Init(void)
 {
@@ -256,8 +277,6 @@ static void MX_TIM2_Init(void)
 
 /**
   * @brief TIM21 Initialization Function
-  * @param None
-  * @retval None
   */
 static void MX_TIM21_Init(void)
 {

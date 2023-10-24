@@ -21,6 +21,7 @@
 
 /************************** REGISTER CONFIGS **************************/
 #define ACC_104HZ_2G		0x40
+#define ACC_104HZ_8G 		0x4C
 #define GYRO_OFF			0x00
 #define DATA_RDY			0x01
 

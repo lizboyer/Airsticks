@@ -23,7 +23,7 @@ HAL_StatusTypeDef acc_init (volatile accelerometer_t* acc)
 	HAL_StatusTypeDef status = HAL_OK;
 
 	// configure the accelerometer to 104Hz
-	status = accelerometer_write(acc, REG_CTRL1_XL, ACC_104HZ_2G);
+	status = accelerometer_write(acc, REG_CTRL1_XL, ACC_104HZ_8G);
 	if(status != HAL_OK) return status;
 
 	// turn the gyroscope off

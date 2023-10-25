@@ -17,13 +17,15 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#ifndef __MAIN_C
+#define __MAIN_C
 #include "main.h"
-#include "MY_CS43L22.h"
-#include <math.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "MY_CS43L22.h"
+#include <math.h>
+#include "adpcm.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,6 +39,13 @@
 
 #define F_SAMPLE			50000.0f
 #define F_OUT				300.0f
+
+
+
+//playback defines -db
+tTwoByte newSample;
+static AudioElement AudioFile;
+static uint8_t AudioFileToPlay = 0;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -131,6 +140,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+	AudioFile.AudioFiles[0] = (uint32_t)&afnm;
+	AudioFile.AudioSize[0] = NELEMS(afnm);
+
+  char* first = (char*)(0x08005000);
+  char* second = (char*)(0x08005001);
   while (1)
   {
     /* USER CODE END WHILE */
@@ -161,8 +176,8 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 8;
-  RCC_OscInitStruct.PLL.PLLN = 336;
+  RCC_OscInitStruct.PLL.PLLM = 4;
+  RCC_OscInitStruct.PLL.PLLN = 64;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 7;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -176,10 +191,10 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -312,9 +327,9 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 84-1;
+  htim2.Init.Prescaler = 1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 20-1;
+  htim2.Init.Period = 255;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -398,18 +413,79 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
             the __HAL_TIM_PeriodElapsedCallback could be implemented in the user file
    */
 
+//	if(htim->Instance == TIM2)
+//	{
+//		mySinVal = sinf(i_t * 2 * PI * sample_dt);
+//		//Convert from float to decimal
+//		myDacVal = (mySinVal + 1)*127;
+//		//Output the sample to the STM DAC
+//		HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_8B_R, myDacVal);
+//
+//		i_t++;
+//		if(i_t>= sample_N) i_t = 0;
+//	}
+
+
 	if(htim->Instance == TIM2)
 	{
-		mySinVal = sinf(i_t * 2 * PI * sample_dt);
-		//Convert from float to decimal
-		myDacVal = (mySinVal + 1)*127;
-		//Output the sample to the STM DAC
-		HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_8B_R, myDacVal);
+	  /* USER CODE BEGIN TIM3_IRQn 0 */
+		uint8_t  adpcmSample;
+		static uint16_t pcmSample;
+		static uint8_t nibble = 1;
+		static uint8_t repetition = 0;
+		static uint16_t sample_position = 0;
+		static unsigned char *RawAudio;
+		static uint8_t PrevAudioFileToPlay = 0xFF;
 
-		i_t++;
-		if(i_t>= sample_N) i_t = 0;
+		if(PrevAudioFileToPlay != AudioFileToPlay)
+		{
+			PrevAudioFileToPlay = AudioFileToPlay;
+			nibble = 1;
+			repetition = 0;
+			sample_position = 0;
+			RawAudio = (unsigned char *)AudioFile.AudioFiles[AudioFileToPlay];
+		}
+
+
+
+			if ((repetition==0) & (sample_position < AudioFile.AudioSize[AudioFileToPlay]))
+			{  // new sample is generated
+				repetition = 7;	// reinitialize repetition down counter
+				if (nibble)
+				{   // first 4 bits of the ADPCM byte decoded
+					adpcmSample = (uint8_t)(RawAudio[sample_position] >> 4);
+				}
+				else
+				{   // last 4 bits of the ADPCM byte decoded
+					adpcmSample = (uint8_t)(RawAudio[sample_position] & 0x0F);
+					sample_position++ ;
+				}
+
+				nibble = (uint8_t)(!nibble);/* indicator inverted mean next interrupt will handle
+																						 the second part of the byte.  */
+				pcmSample = ADPCM_Decode(adpcmSample);
+
+				// update sample
+				newSample.uShort = (uint16_t)32768 + pcmSample;
+				TIM2->CCR2 = newSample.uBytes[0]; //LSB
+				TIM2->CCR1 = newSample.uBytes[1]; //MSB
+				HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, (newSample.uShort)>>4);
+			}
+			else if (sample_position < AudioFile.AudioSize[AudioFileToPlay])
+			{  // repetition 7 more times of the PWM period before new sample, total of times the same value is repeated = 8
+				repetition--;
+
+				// reload Timer with the actual sample value
+				newSample.uShort = (uint16_t)32768 + pcmSample;
+				TIM2->CCR2 = newSample.uBytes[0]; //LSB
+				TIM2->CCR1 = newSample.uBytes[1]; //MSB
+				HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, (newSample.uShort)>>4);
+			}
+
+	  /* USER CODE END TIM3_IRQn 0 */
+	  /* USER CODE BEGIN TIM3_IRQn 1 */
 	}
-
+	  /* USER CODE END TIM3_IRQn 1 */
 }
 
 /* USER CODE END 4 */
@@ -445,3 +521,4 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+#endif

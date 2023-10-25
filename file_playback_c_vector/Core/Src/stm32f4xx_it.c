@@ -23,8 +23,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "adpcm.h"
+#define USE_DAC
 #ifdef USE_DAC
-#include "dac.h"
+//#include "dac.h"
 #endif
 //will have a problem here cause our DAC output doesn't work like theirs i think
 /* USER CODE END Includes */

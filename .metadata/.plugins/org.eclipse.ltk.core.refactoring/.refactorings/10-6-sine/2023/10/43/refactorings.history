@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;10-6-sine/Core/Inc/afnm.c&apos; to &apos;afnm.h&apos;" description="Rename resource &apos;afnm.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/afnm.c" name="afnm.h" stamp="1698260701492" updateReferences="true"/>
+</session>

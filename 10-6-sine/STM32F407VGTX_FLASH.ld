@@ -60,6 +60,12 @@ SECTIONS
     KEEP(*(.isr_vector)) /* Startup code */
     . = ALIGN(4);
   } >FLASH
+  
+  /*adding in the audio file -db*/
+  	.myAudioFiles 0x08005000 :
+	{
+		KEEP(*(.myAudioFiles))
+	} >FLASH
 
   /* The program code and other data into "FLASH" Rom type memory */
   .text :

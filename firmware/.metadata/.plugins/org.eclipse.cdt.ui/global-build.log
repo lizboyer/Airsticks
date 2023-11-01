@@ -1,0 +1,928 @@
+18:19:23 **** Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cortex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cortex.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dma.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dma.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_exti.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_exti.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ex.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ramfunc.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ramfunc.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ramfunc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_gpio.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_gpio.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c_ex.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr_ex.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc_ex.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim_ex.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart.o"
+arm-none-eabi-gcc "../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart_ex.d" -MT"Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart_ex.o"
+arm-none-eabi-gcc -mcpu=cortex-m0plus -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32l031k6tx.d" -MT"Core/Startup/startup_stm32l031k6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Startup/startup_stm32l031k6tx.o" "../Core/Startup/startup_stm32l031k6tx.s"
+arm-none-eabi-gcc "../Core/Src/accelerometer.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/accelerometer.d" -MT"Core/Src/accelerometer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/accelerometer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:24:1: error: version control conflict marker in file
+   24 | <<<<<<< Updated upstream
+      | ^~~~~~~
+In file included from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h:133,
+                 from ../Core/Inc/accelerometer.h:46,
+                 from ../Core/Src/accelerometer.c:5:
+../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l031xx.h:99:3: warning: data definition has no type or storage class
+   99 | } IRQn_Type;
+      |   ^~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l031xx.h:99:3: warning: type defaults to 'int' in declaration of 'IRQn_Type' [-Wimplicit-int]
+In file included from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l031xx.h:105,
+                 from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h:133,
+                 from ../Core/Inc/accelerometer.h:46,
+                 from ../Core/Src/accelerometer.c:5:
+../Drivers/CMSIS/Include/core_cm0plus.h:741:39: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  741 | __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
+      |                                       ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:758:46: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  758 | __STATIC_INLINE uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
+      |                                              ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:777:40: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  777 | __STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)
+      |                                        ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:796:47: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  796 | __STATIC_INLINE uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
+      |                                               ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:815:43: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  815 | __STATIC_INLINE void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
+      |                                           ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:830:45: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  830 | __STATIC_INLINE void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+      |                                             ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:848:41: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  848 | __STATIC_INLINE void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+      |                                         ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:872:45: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  872 | __STATIC_INLINE uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
+      |                                             ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:948:39: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  948 | __STATIC_INLINE void __NVIC_SetVector(IRQn_Type IRQn, uint32_t vector)
+      |                                       ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:967:43: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  967 | __STATIC_INLINE uint32_t __NVIC_GetVector(IRQn_Type IRQn)
+      |                                           ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h: In function 'SysTick_Config':
+../Drivers/CMSIS/Include/core_cm0plus.h:702:39: warning: implicit declaration of function '__NVIC_SetPriority'; did you mean 'NVIC_SetPriority'? [-Wimplicit-function-declaration]
+  702 |   #define NVIC_SetPriority            __NVIC_SetPriority
+      |                                       ^~~~~~~~~~~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:1062:3: note: in expansion of macro 'NVIC_SetPriority'
+ 1062 |   NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
+      |   ^~~~~~~~~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:1062:21: error: 'SysTick_IRQn' undeclared (first use in this function); did you mean 'SysTick_Type'?
+ 1062 |   NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
+      |                     ^~~~~~~~~~~~
+      |                     SysTick_Type
+../Drivers/CMSIS/Include/core_cm0plus.h:1062:21: note: each undeclared identifier is reported only once for each function it appears in
+arm-none-eabi-gcc "../Core/Src/stm32l0xx_hal_msp.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l0xx_hal_msp.d" -MT"Core/Src/stm32l0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32l0xx_hal_msp.o"
+In file included from ../Core/Inc/stm32l0xx_hal_conf.h:204,
+                 from ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:29,
+                 from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h:255,
+                 from ../Core/Inc/accelerometer.h:46,
+                 from ../Core/Src/accelerometer.c:5:
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h: At top level:
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:240:27: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  240 | void HAL_NVIC_SetPriority(IRQn_Type IRQn, uint32_t PreemptPriority, uint32_t SubPriority);
+      |                           ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:241:25: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  241 | void HAL_NVIC_EnableIRQ(IRQn_Type IRQn);
+      |                         ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:242:26: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  242 | void HAL_NVIC_DisableIRQ(IRQn_Type IRQn);
+      |                          ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:254:31: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  254 | uint32_t HAL_NVIC_GetPriority(IRQn_Type IRQn);
+      |                               ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:255:33: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  255 | uint32_t HAL_NVIC_GetPendingIRQ(IRQn_Type IRQn);
+      |                                 ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:256:29: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  256 | void HAL_NVIC_SetPendingIRQ(IRQn_Type IRQn);
+      |                             ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:257:31: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  257 | void HAL_NVIC_ClearPendingIRQ(IRQn_Type IRQn);
+      |                               ^~~~~~~~~
+../Core/Src/main.c:67:24: error: variable 'xl_r' has initializer but incomplete type
+   67 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                        ^~~~~~~~~~~~~~~
+../Core/Src/main.c:67:49: error: 'volatile struct accelerometer_t' has no member named 'slave_r_addr'
+   67 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                                 ^~~~~~~~~~~~
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:116:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  116 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Src/accelerometer.c: In function 'lsm6dsox_mlc_out_get':
+../Core/Src/accelerometer.c:167:54: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  167 |           status = accelerometer_read(acc, MLC0_SRC, (uint8_t)buff);    // reads MLC decision tree output
+      |                                                      ^
+make: *** [Core/Src/subdir.mk:37: Core/Src/accelerometer.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c:67:64: error: 'ACC0_R_ADDR' undeclared here (not in a function)
+   67 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                                                ^~~~~~~~~~~
+../Core/Src/main.c:67:64: warning: excess elements in struct initializer
+../Core/Src/main.c:67:64: note: (near initialization for 'xl_r')
+../Core/Src/main.c:67:78: error: 'volatile struct accelerometer_t' has no member named 'slave_w_addr'
+   67 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                                                              ^~~~~~~~~~~~
+../Core/Src/main.c:67:93: error: 'ACC0_W_ADDR' undeclared here (not in a function)
+   67 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                                                                             ^~~~~~~~~~~
+../Core/Src/main.c:67:93: warning: excess elements in struct initializer
+../Core/Src/main.c:67:93: note: (near initialization for 'xl_r')
+../Core/Src/main.c:67:107: error: 'volatile struct accelerometer_t' has no member named 'irq_pin'
+   67 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                                                                                           ^~~~~~~
+In file included from ../Core/Inc/stm32l0xx_hal_conf.h:196,
+                 from ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_gpio.h:104:36: warning: excess elements in struct initializer
+  104 | #define GPIO_PIN_0                 (0x0001U)  /* Pin 0 selected    */
+      |                                    ^
+../Core/Src/main.c:67:117: note: in expansion of macro 'GPIO_PIN_0'
+   67 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                                                                                                     ^~~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_gpio.h:104:36: note: (near initialization for 'xl_r')
+  104 | #define GPIO_PIN_0                 (0x0001U)  /* Pin 0 selected    */
+      |                                    ^
+../Core/Src/main.c:67:117: note: in expansion of macro 'GPIO_PIN_0'
+   67 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                                                                                                     ^~~~~~~~~~
+../Core/Src/main.c:68:24: error: variable 'xl_l' has initializer but incomplete type
+   68 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                        ^~~~~~~~~~~~~~~
+../Core/Src/main.c:68:49: error: 'volatile struct accelerometer_t' has no member named 'slave_r_addr'
+   68 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                                 ^~~~~~~~~~~~
+../Core/Src/main.c:68:64: error: 'ACC1_R_ADDR' undeclared here (not in a function)
+   68 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                                                ^~~~~~~~~~~
+../Core/Src/main.c:68:64: warning: excess elements in struct initializer
+../Core/Src/main.c:68:64: note: (near initialization for 'xl_l')
+../Core/Src/main.c:68:78: error: 'volatile struct accelerometer_t' has no member named 'slave_w_addr'
+   68 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                                                              ^~~~~~~~~~~~
+../Core/Src/main.c:68:93: error: 'ACC1_W_ADDR' undeclared here (not in a function)
+   68 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                                                                             ^~~~~~~~~~~
+../Core/Src/main.c:68:93: warning: excess elements in struct initializer
+../Core/Src/main.c:68:93: note: (near initialization for 'xl_l')
+../Core/Src/main.c:68:107: error: 'volatile struct accelerometer_t' has no member named 'irq_pin'
+   68 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                                                                                           ^~~~~~~
+In file included from ../Core/Inc/stm32l0xx_hal_conf.h:196,
+                 from ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_gpio.h:105:36: warning: excess elements in struct initializer
+  105 | #define GPIO_PIN_1                 (0x0002U)  /* Pin 1 selected    */
+      |                                    ^
+../Core/Src/main.c:68:117: note: in expansion of macro 'GPIO_PIN_1'
+   68 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                                                                                                     ^~~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_gpio.h:105:36: note: (near initialization for 'xl_l')
+  105 | #define GPIO_PIN_1                 (0x0002U)  /* Pin 1 selected    */
+      |                                    ^
+../Core/Src/main.c:68:117: note: in expansion of macro 'GPIO_PIN_1'
+   68 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                                                                                                     ^~~~~~~~~~
+../Core/Src/main.c:76:15: error: variable 'xl_r' has initializer but incomplete type
+   76 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |               ^~~~~~~~~~~~~~~
+../Core/Src/main.c:76:31: error: conflicting type qualifiers for 'xl_r'
+   76 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:67:40: note: previous declaration of 'xl_r' with type 'volatile struct accelerometer_t'
+   67 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                        ^~~~
+../Core/Src/main.c:76:40: error: 'struct accelerometer_t' has no member named 'slave_r_addr'
+   76 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                                        ^~~~~~~~~~~~
+../Core/Src/main.c:76:55: warning: excess elements in struct initializer
+   76 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                                                       ^~~~~~~~~~~
+../Core/Src/main.c:76:55: note: (near initialization for 'xl_r')
+../Core/Src/main.c:76:69: error: 'struct accelerometer_t' has no member named 'slave_w_addr'
+   76 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                                                                     ^~~~~~~~~~~~
+../Core/Src/main.c:76:84: warning: excess elements in struct initializer
+   76 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                                                                                    ^~~~~~~~~~~
+../Core/Src/main.c:76:84: note: (near initialization for 'xl_r')
+../Core/Src/main.c:77:15: error: variable 'xl_l' has initializer but incomplete type
+   77 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |               ^~~~~~~~~~~~~~~
+../Core/Src/main.c:77:31: error: conflicting type qualifiers for 'xl_l'
+   77 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:68:40: note: previous declaration of 'xl_l' with type 'volatile struct accelerometer_t'
+   68 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                        ^~~~
+../Core/Src/main.c:77:40: error: 'struct accelerometer_t' has no member named 'slave_r_addr'
+   77 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                                        ^~~~~~~~~~~~
+../Core/Src/main.c:77:55: warning: excess elements in struct initializer
+   77 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                                                       ^~~~~~~~~~~
+../Core/Src/main.c:77:55: note: (near initialization for 'xl_l')
+../Core/Src/main.c:77:69: error: 'struct accelerometer_t' has no member named 'slave_w_addr'
+   77 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                                                                     ^~~~~~~~~~~~
+../Core/Src/main.c:77:84: warning: excess elements in struct initializer
+   77 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                                                                                    ^~~~~~~~~~~
+../Core/Src/main.c:77:84: note: (near initialization for 'xl_l')
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:102:9: warning: implicit declaration of function 'acc_init' [-Wimplicit-function-declaration]
+  102 |         acc_init(&xl_l);
+      |         ^~~~~~~~
+../Core/Src/main.c:119:17: warning: implicit declaration of function 'accelerometer_read' [-Wimplicit-function-declaration]
+  119 |                 accelerometer_read(&xl_r, MLC_STATUS_MAINPAGE, status_mlc1);
+      |                 ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:119:43: error: 'MLC_STATUS_MAINPAGE' undeclared (first use in this function)
+  119 |                 accelerometer_read(&xl_r, MLC_STATUS_MAINPAGE, status_mlc1);
+      |                                           ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:119:43: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:122:34: warning: implicit declaration of function 'lsm6dsox_mlc_out_get' [-Wimplicit-function-declaration]
+  122 |                         status = lsm6dsox_mlc_out_get(&xl_r, mlc_out); // gets mlc interrupt code
+      |                                  ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:35: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  124 |                                   printf("Detect MLC interrupt code: %02X\r\n", mlc_out);
+      |                                   ^~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:124:35: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  124 |                                   printf("Detect MLC interrupt code: %02X\r\n", mlc_out);
+      |                                   ^~~~~~
+../Core/Src/main.c:124:35: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/main.c:128:24: error: invalid use of undefined type 'struct accelerometer_t'
+  128 |                 if(xl_r.z_xlr < -0x1000) {
+      |                        ^
+../Core/Src/main.c:132:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  132 |                 printf("%d\r\n",xl_r.x_xlr);
+      |                 ^~~~~~
+../Core/Src/main.c:132:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/main.c:132:37: error: invalid use of undefined type 'struct accelerometer_t'
+  132 |                 printf("%d\r\n",xl_r.x_xlr);
+      |                                     ^
+../Core/Src/main.c:133:37: error: invalid use of undefined type 'struct accelerometer_t'
+  133 |                 printf("%d\r\n",xl_r.y_xlr);
+      |                                     ^
+../Core/Src/main.c:134:37: error: invalid use of undefined type 'struct accelerometer_t'
+  134 |                 printf("%d\r\n",xl_r.z_xlr);
+      |                                     ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:67:40: error: storage size of 'xl_r' isn't known
+   67 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                        ^~~~
+../Core/Src/main.c:68:40: error: storage size of 'xl_l' isn't known
+   68 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                        ^~~~
+../Core/Src/main.c:76:31: error: storage size of 'xl_r' isn't known
+   76 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:77:31: error: storage size of 'xl_l' isn't known
+   77 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                               ^~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:19:44 **** Incremental Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/accelerometer.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/accelerometer.d" -MT"Core/Src/accelerometer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/accelerometer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l0xx_it.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l0xx_it.d" -MT"Core/Src/stm32l0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32l0xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32l0xx.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32l0xx.d" -MT"Core/Src/system_stm32l0xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32l0xx.o"
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:24:1: error: version control conflict marker in file
+   24 | <<<<<<< Updated upstream
+      | ^~~~~~~
+In file included from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h:133,
+                 from ../Core/Inc/accelerometer.h:46,
+                 from ../Core/Src/accelerometer.c:5:
+../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l031xx.h:99:3: warning: data definition has no type or storage class
+   99 | } IRQn_Type;
+      |   ^~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l031xx.h:99:3: warning: type defaults to 'int' in declaration of 'IRQn_Type' [-Wimplicit-int]
+In file included from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l031xx.h:105,
+                 from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h:133,
+                 from ../Core/Inc/accelerometer.h:46,
+                 from ../Core/Src/accelerometer.c:5:
+../Drivers/CMSIS/Include/core_cm0plus.h:741:39: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  741 | __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
+      |                                       ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:758:46: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  758 | __STATIC_INLINE uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
+      |                                              ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:777:40: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  777 | __STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)
+      |                                        ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:796:47: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  796 | __STATIC_INLINE uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
+      |                                               ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:815:43: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  815 | __STATIC_INLINE void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
+      |                                           ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:830:45: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  830 | __STATIC_INLINE void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+      |                                             ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:848:41: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  848 | __STATIC_INLINE void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+      |                                         ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:872:45: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  872 | __STATIC_INLINE uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
+      |                                             ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:948:39: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  948 | __STATIC_INLINE void __NVIC_SetVector(IRQn_Type IRQn, uint32_t vector)
+      |                                       ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:967:43: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  967 | __STATIC_INLINE uint32_t __NVIC_GetVector(IRQn_Type IRQn)
+      |                                           ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h: In function 'SysTick_Config':
+../Drivers/CMSIS/Include/core_cm0plus.h:702:39: warning: implicit declaration of function '__NVIC_SetPriority'; did you mean 'NVIC_SetPriority'? [-Wimplicit-function-declaration]
+  702 |   #define NVIC_SetPriority            __NVIC_SetPriority
+      |                                       ^~~~~~~~~~~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:1062:3: note: in expansion of macro 'NVIC_SetPriority'
+ 1062 |   NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
+      |   ^~~~~~~~~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:1062:21: error: 'SysTick_IRQn' undeclared (first use in this function); did you mean 'SysTick_Type'?
+ 1062 |   NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
+      |                     ^~~~~~~~~~~~
+      |                     SysTick_Type
+../Drivers/CMSIS/Include/core_cm0plus.h:1062:21: note: each undeclared identifier is reported only once for each function it appears in
+In file included from ../Core/Inc/stm32l0xx_hal_conf.h:204,
+                 from ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:29,
+                 from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h:255,
+                 from ../Core/Inc/accelerometer.h:46,
+                 from ../Core/Src/accelerometer.c:5:
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h: At top level:
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:240:27: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  240 | void HAL_NVIC_SetPriority(IRQn_Type IRQn, uint32_t PreemptPriority, uint32_t SubPriority);
+      |                           ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:241:25: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  241 | void HAL_NVIC_EnableIRQ(IRQn_Type IRQn);
+      |                         ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:242:26: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  242 | void HAL_NVIC_DisableIRQ(IRQn_Type IRQn);
+      |                          ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:254:31: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  254 | uint32_t HAL_NVIC_GetPriority(IRQn_Type IRQn);
+      |                               ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:255:33: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  255 | uint32_t HAL_NVIC_GetPendingIRQ(IRQn_Type IRQn);
+      |                                 ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:256:29: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  256 | void HAL_NVIC_SetPendingIRQ(IRQn_Type IRQn);
+      |                             ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:257:31: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  257 | void HAL_NVIC_ClearPendingIRQ(IRQn_Type IRQn);
+      |                               ^~~~~~~~~
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:24:1: error: version control conflict marker in file
+   24 | <<<<<<< Updated upstream
+      | ^~~~~~~
+../Core/Inc/accelerometer.h:55:3: warning: data definition has no type or storage class
+   55 | } axis_t;
+      |   ^~~~~~
+../Core/Inc/accelerometer.h:55:3: warning: type defaults to 'int' in declaration of 'axis_t' [-Wimplicit-int]
+../Core/Inc/accelerometer.h:94:67: error: expected declaration specifiers or '...' before 'axis_t'
+   94 | extern HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis);
+      |                                                                   ^~~~~~
+../Core/Inc/accelerometer.h:116:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  116 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Src/main.c:77:31: error: conflicting type qualifiers for 'xl_r'
+   77 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:68:40: note: previous definition of 'xl_r' with type 'volatile struct accelerometer_t'
+   68 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                        ^~~~
+../Core/Src/main.c:78:31: error: conflicting type qualifiers for 'xl_l'
+   78 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:69:40: note: previous definition of 'xl_l' with type 'volatile struct accelerometer_t'
+   69 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                        ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:123:62: warning: passing argument 2 of 'lsm6dsox_mlc_out_get' makes pointer from integer without a cast [-Wint-conversion]
+  123 |                         status = lsm6dsox_mlc_out_get(&xl_r, mlc_out); // gets mlc interrupt code
+      |                                                              ^~~~~~~
+      |                                                              |
+      |                                                              uint8_t {aka unsigned char}
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:111:70: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  111 | int32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                                             ~~~~~~~~~^~~~
+../Core/Src/main.c:125:35: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  125 |                                   printf("Detect MLC interrupt code: %02X\r\n", mlc_out);
+      |                                   ^~~~~~
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   21 | #include "accelerometer.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:125:35: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  125 |                                   printf("Detect MLC interrupt code: %02X\r\n", mlc_out);
+      |                                   ^~~~~~
+../Core/Src/main.c:125:35: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/main.c:133:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  133 |                 printf("%d\r\n",xl_r.x_xlr);
+      |                 ^~~~~~
+../Core/Src/main.c:133:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:116:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  116 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Src/accelerometer.c: In function 'lsm6dsox_mlc_out_get':
+../Core/Src/accelerometer.c:167:54: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  167 |           status = accelerometer_read(acc, MLC0_SRC, (uint8_t)buff);    // reads MLC decision tree output
+      |                                                      ^
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:37: Core/Src/accelerometer.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:20:15 **** Incremental Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/accelerometer.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/accelerometer.d" -MT"Core/Src/accelerometer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/accelerometer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:24:1: error: version control conflict marker in file
+   24 | <<<<<<< Updated upstream
+      | ^~~~~~~
+In file included from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h:133,
+                 from ../Core/Inc/accelerometer.h:46,
+                 from ../Core/Src/accelerometer.c:5:
+../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l031xx.h:99:3: warning: data definition has no type or storage class
+   99 | } IRQn_Type;
+      |   ^~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l031xx.h:99:3: warning: type defaults to 'int' in declaration of 'IRQn_Type' [-Wimplicit-int]
+In file included from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l031xx.h:105,
+                 from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h:133,
+                 from ../Core/Inc/accelerometer.h:46,
+                 from ../Core/Src/accelerometer.c:5:
+../Drivers/CMSIS/Include/core_cm0plus.h:741:39: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  741 | __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
+      |                                       ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:758:46: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  758 | __STATIC_INLINE uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
+      |                                              ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:777:40: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  777 | __STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)
+      |                                        ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:796:47: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  796 | __STATIC_INLINE uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
+      |                                               ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:815:43: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  815 | __STATIC_INLINE void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
+      |                                           ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:830:45: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  830 | __STATIC_INLINE void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+      |                                             ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:848:41: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  848 | __STATIC_INLINE void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+      |                                         ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:872:45: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  872 | __STATIC_INLINE uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
+      |                                             ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:948:39: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  948 | __STATIC_INLINE void __NVIC_SetVector(IRQn_Type IRQn, uint32_t vector)
+      |                                       ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:967:43: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  967 | __STATIC_INLINE uint32_t __NVIC_GetVector(IRQn_Type IRQn)
+      |                                           ^~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h: In function 'SysTick_Config':
+../Drivers/CMSIS/Include/core_cm0plus.h:702:39: warning: implicit declaration of function '__NVIC_SetPriority'; did you mean 'NVIC_SetPriority'? [-Wimplicit-function-declaration]
+  702 |   #define NVIC_SetPriority            __NVIC_SetPriority
+      |                                       ^~~~~~~~~~~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:1062:3: note: in expansion of macro 'NVIC_SetPriority'
+ 1062 |   NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
+      |   ^~~~~~~~~~~~~~~~
+../Drivers/CMSIS/Include/core_cm0plus.h:1062:21: error: 'SysTick_IRQn' undeclared (first use in this function); did you mean 'SysTick_Type'?
+ 1062 |   NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
+      |                     ^~~~~~~~~~~~
+      |                     SysTick_Type
+../Drivers/CMSIS/Include/core_cm0plus.h:1062:21: note: each undeclared identifier is reported only once for each function it appears in
+In file included from ../Core/Inc/stm32l0xx_hal_conf.h:204,
+                 from ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:29,
+                 from ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h:255,
+                 from ../Core/Inc/accelerometer.h:46,
+                 from ../Core/Src/accelerometer.c:5:
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h: At top level:
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:240:27: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  240 | void HAL_NVIC_SetPriority(IRQn_Type IRQn, uint32_t PreemptPriority, uint32_t SubPriority);
+      |                           ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:241:25: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  241 | void HAL_NVIC_EnableIRQ(IRQn_Type IRQn);
+      |                         ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:242:26: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  242 | void HAL_NVIC_DisableIRQ(IRQn_Type IRQn);
+      |                          ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:254:31: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  254 | uint32_t HAL_NVIC_GetPriority(IRQn_Type IRQn);
+      |                               ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:255:33: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  255 | uint32_t HAL_NVIC_GetPendingIRQ(IRQn_Type IRQn);
+      |                                 ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:256:29: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  256 | void HAL_NVIC_SetPendingIRQ(IRQn_Type IRQn);
+      |                             ^~~~~~~~~
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:257:31: error: expected declaration specifiers or '...' before 'IRQn_Type'
+  257 | void HAL_NVIC_ClearPendingIRQ(IRQn_Type IRQn);
+      |                               ^~~~~~~~~
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:24:1: error: version control conflict marker in file
+   24 | <<<<<<< Updated upstream
+      | ^~~~~~~
+../Core/Inc/accelerometer.h:55:3: warning: data definition has no type or storage class
+   55 | } axis_t;
+      |   ^~~~~~
+../Core/Inc/accelerometer.h:55:3: warning: type defaults to 'int' in declaration of 'axis_t' [-Wimplicit-int]
+../Core/Inc/accelerometer.h:94:67: error: expected declaration specifiers or '...' before 'axis_t'
+   94 | extern HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis);
+      |                                                                   ^~~~~~
+../Core/Inc/accelerometer.h:116:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  116 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:116:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  116 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Src/accelerometer.c: In function 'lsm6dsox_mlc_out_get':
+../Core/Src/accelerometer.c:167:54: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  167 |           status = accelerometer_read(acc, MLC0_SRC, (uint8_t)buff);    // reads MLC decision tree output
+      |                                                      ^
+make: *** [Core/Src/subdir.mk:37: Core/Src/accelerometer.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c:79:31: error: conflicting type qualifiers for 'xl_r'
+   79 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:70:40: note: previous definition of 'xl_r' with type 'volatile struct accelerometer_t'
+   70 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                        ^~~~
+../Core/Src/main.c:80:31: error: conflicting type qualifiers for 'xl_l'
+   80 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:71:40: note: previous definition of 'xl_l' with type 'volatile struct accelerometer_t'
+   71 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                        ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:125:62: warning: passing argument 2 of 'lsm6dsox_mlc_out_get' makes pointer from integer without a cast [-Wint-conversion]
+  125 |                         status = lsm6dsox_mlc_out_get(&xl_r, mlc_out); // gets mlc interrupt code
+      |                                                              ^~~~~~~
+      |                                                              |
+      |                                                              uint8_t {aka unsigned char}
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:111:70: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  111 | int32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                                             ~~~~~~~~~^~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:21:24 **** Incremental Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/accelerometer.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/accelerometer.d" -MT"Core/Src/accelerometer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/accelerometer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Src/accelerometer.c:159:9: error: conflicting types for 'lsm6dsox_mlc_out_get'; have 'int32_t(volatile accelerometer_t *, uint8_t *)' {aka 'long int(volatile accelerometer_t *, unsigned char *)'}
+  159 | int32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff)
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:109:10: note: previous declaration of 'lsm6dsox_mlc_out_get' with type 'uint32_t(volatile accelerometer_t *, uint8_t *)' {aka 'long unsigned int(volatile accelerometer_t *, unsigned char *)'}
+  109 | uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |          ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/accelerometer.c: In function 'lsm6dsox_mlc_out_get':
+../Core/Src/accelerometer.c:167:54: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  167 |           status = accelerometer_read(acc, MLC0_SRC, (uint8_t)buff);    // reads MLC decision tree output
+      |                                                      ^
+make: *** [Core/Src/subdir.mk:37: Core/Src/accelerometer.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c:79:31: error: conflicting type qualifiers for 'xl_r'
+   79 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:70:40: note: previous definition of 'xl_r' with type 'volatile struct accelerometer_t'
+   70 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                        ^~~~
+../Core/Src/main.c:80:31: error: conflicting type qualifiers for 'xl_l'
+   80 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:71:40: note: previous definition of 'xl_l' with type 'volatile struct accelerometer_t'
+   71 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                        ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:125:62: warning: passing argument 2 of 'lsm6dsox_mlc_out_get' makes pointer from integer without a cast [-Wint-conversion]
+  125 |                         status = lsm6dsox_mlc_out_get(&xl_r, mlc_out); // gets mlc interrupt code
+      |                                                              ^~~~~~~
+      |                                                              |
+      |                                                              uint8_t {aka unsigned char}
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:109:71: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  109 | uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                                              ~~~~~~~~~^~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:22:08 **** Incremental Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/accelerometer.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/accelerometer.d" -MT"Core/Src/accelerometer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/accelerometer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Src/accelerometer.c: In function 'lsm6dsox_mlc_out_get':
+../Core/Src/accelerometer.c:167:54: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  167 |           status = accelerometer_read(acc, MLC0_SRC, (uint8_t)buff);    // reads MLC decision tree output
+      |                                                      ^
+../Core/Src/main.c:79:31: error: conflicting type qualifiers for 'xl_r'
+   79 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:70:40: note: previous definition of 'xl_r' with type 'volatile struct accelerometer_t'
+   70 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                        ^~~~
+../Core/Src/main.c:80:31: error: conflicting type qualifiers for 'xl_l'
+   80 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:71:40: note: previous definition of 'xl_l' with type 'volatile struct accelerometer_t'
+   71 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                        ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:125:62: warning: passing argument 2 of 'lsm6dsox_mlc_out_get' makes pointer from integer without a cast [-Wint-conversion]
+  125 |                         status = lsm6dsox_mlc_out_get(&xl_r, mlc_out); // gets mlc interrupt code
+      |                                                              ^~~~~~~
+      |                                                              |
+      |                                                              uint8_t {aka unsigned char}
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:109:71: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  109 | uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                                              ~~~~~~~~~^~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:23:46 **** Incremental Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/accelerometer.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/accelerometer.d" -MT"Core/Src/accelerometer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/accelerometer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Src/accelerometer.c: In function 'lsm6dsox_mlc_out_get':
+../Core/Src/accelerometer.c:167:54: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  167 |           status = accelerometer_read(acc, MLC0_SRC, (uint8_t)buff);    // reads MLC decision tree output
+      |                                                      ^
+../Core/Src/main.c:79:31: error: conflicting type qualifiers for 'xl_r'
+   79 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:70:40: note: previous definition of 'xl_r' with type 'volatile struct accelerometer_t'
+   70 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                        ^~~~
+../Core/Src/main.c:80:31: error: conflicting type qualifiers for 'xl_l'
+   80 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:71:40: note: previous definition of 'xl_l' with type 'volatile struct accelerometer_t'
+   71 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                        ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:125:62: warning: passing argument 2 of 'lsm6dsox_mlc_out_get' makes pointer from integer without a cast [-Wint-conversion]
+  125 |                         status = lsm6dsox_mlc_out_get(&xl_r, mlc_out); // gets mlc interrupt code
+      |                                                              ^~~~~~~
+      |                                                              |
+      |                                                              uint8_t {aka unsigned char}
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:109:78: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  109 | extern uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                                                     ~~~~~~~~~^~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:26:45 **** Incremental Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/accelerometer.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/accelerometer.d" -MT"Core/Src/accelerometer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/accelerometer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:55:1: error: multiple storage classes in declaration specifiers
+   55 | extern typedef struct accelerometer_t {
+      | ^~~~~~
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:55:1: error: multiple storage classes in declaration specifiers
+   55 | extern typedef struct accelerometer_t {
+      | ^~~~~~
+../Core/Inc/accelerometer.h:79:44: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+   79 | extern HAL_StatusTypeDef acc_init(volatile accelerometer_t* acc);
+      |                                            ^~~~~~~~~~~~~~~
+../Core/Inc/accelerometer.h:79:44: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+   79 | extern HAL_StatusTypeDef acc_init(volatile accelerometer_t* acc);
+      |                                            ^~~~~~~~~~~~~~~
+../Core/Inc/accelerometer.h:79:59: error: expected ';', ',' or ')' before '*' token
+   79 | extern HAL_StatusTypeDef acc_init(volatile accelerometer_t* acc);
+      |                                                           ^
+../Core/Inc/accelerometer.h:79:59: error: expected ';', ',' or ')' before '*' token
+   79 | extern HAL_StatusTypeDef acc_init(volatile accelerometer_t* acc);
+      |                                                           ^
+../Core/Inc/accelerometer.h:92:45: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+   92 | extern HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis);
+      |                                             ^~~~~~~~~~~~~~~
+../Core/Inc/accelerometer.h:92:45: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+   92 | extern HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis);
+      |                                             ^~~~~~~~~~~~~~~
+../Core/Inc/accelerometer.h:92:60: error: expected ';', ',' or ')' before '*' token
+   92 | extern HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis);
+      |                                                            ^
+../Core/Inc/accelerometer.h:92:60: error: expected ';', ',' or ')' before '*' token
+   92 | extern HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis);
+      |                                                            ^
+../Core/Inc/accelerometer.h:107:55: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+  107 | extern HAL_StatusTypeDef accelerometer_write(volatile accelerometer_t* acc, uint8_t reg, uint8_t data);
+      |                                                       ^~~~~~~~~~~~~~~
+../Core/Inc/accelerometer.h:107:55: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+  107 | extern HAL_StatusTypeDef accelerometer_write(volatile accelerometer_t* acc, uint8_t reg, uint8_t data);
+      |                                                       ^~~~~~~~~~~~~~~
+../Core/Inc/accelerometer.h:107:70: error: expected ';', ',' or ')' before '*' token
+  107 | extern HAL_StatusTypeDef accelerometer_write(volatile accelerometer_t* acc, uint8_t reg, uint8_t data);
+      |                                                                      ^
+../Core/Inc/accelerometer.h:107:70: error: expected ';', ',' or ')' before '*' token
+  107 | extern HAL_StatusTypeDef accelerometer_write(volatile accelerometer_t* acc, uint8_t reg, uint8_t data);
+      |                                                                      ^
+../Core/Inc/accelerometer.h:109:47: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+  109 | extern uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                               ^~~~~~~~~~~~~~~
+../Core/Inc/accelerometer.h:109:47: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+  109 | extern uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                               ^~~~~~~~~~~~~~~
+../Core/Inc/accelerometer.h:109:62: error: expected ';', ',' or ')' before '*' token
+  109 | extern uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                                              ^
+../Core/Inc/accelerometer.h:109:62: error: expected ';', ',' or ')' before '*' token
+  109 | extern uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                                              ^
+../Core/Inc/accelerometer.h:111:54: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+  111 | extern HAL_StatusTypeDef accelerometer_read(volatile accelerometer_t* acc, uint8_t reg, uint8_t data);
+      |                                                      ^~~~~~~~~~~~~~~
+../Core/Inc/accelerometer.h:111:54: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+  111 | extern HAL_StatusTypeDef accelerometer_read(volatile accelerometer_t* acc, uint8_t reg, uint8_t data);
+      |                                                      ^~~~~~~~~~~~~~~
+../Core/Inc/accelerometer.h:111:69: error: expected ';', ',' or ')' before '*' token
+  111 | extern HAL_StatusTypeDef accelerometer_read(volatile accelerometer_t* acc, uint8_t reg, uint8_t data);
+      |                                                                     ^
+../Core/Inc/accelerometer.h:111:69: error: expected ';', ',' or ')' before '*' token
+  111 | extern HAL_StatusTypeDef accelerometer_read(volatile accelerometer_t* acc, uint8_t reg, uint8_t data);
+      |                                                                     ^
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Src/accelerometer.c:22:38: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+   22 | HAL_StatusTypeDef acc_init (volatile accelerometer_t* acc)
+      |                                      ^~~~~~~~~~~~~~~
+../Core/Src/accelerometer.c:22:53: error: expected ';', ',' or ')' before '*' token
+   22 | HAL_StatusTypeDef acc_init (volatile accelerometer_t* acc)
+      |                                                     ^
+../Core/Src/accelerometer.c:80:38: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+   80 | HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis)
+      |                                      ^~~~~~~~~~~~~~~
+../Core/Src/accelerometer.c:80:53: error: expected ';', ',' or ')' before '*' token
+   80 | HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis)
+      |                                                     ^
+../Core/Src/accelerometer.c:135:48: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+  135 | HAL_StatusTypeDef accelerometer_write(volatile accelerometer_t* acc, uint8_t reg, uint8_t data)
+      |                                                ^~~~~~~~~~~~~~~
+../Core/Src/accelerometer.c:135:63: error: expected ';', ',' or ')' before '*' token
+  135 | HAL_StatusTypeDef accelerometer_write(volatile accelerometer_t* acc, uint8_t reg, uint8_t data)
+      |                                                               ^
+../Core/Src/accelerometer.c:145:47: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+  145 | HAL_StatusTypeDef accelerometer_read(volatile accelerometer_t* acc, uint8_t reg, uint8_t data)
+      |                                               ^~~~~~~~~~~~~~~
+../Core/Src/accelerometer.c:145:62: error: expected ';', ',' or ')' before '*' token
+  145 | HAL_StatusTypeDef accelerometer_read(volatile accelerometer_t* acc, uint8_t reg, uint8_t data)
+      |                                                              ^
+../Core/Src/accelerometer.c:159:40: warning: type defaults to 'int' in declaration of 'accelerometer_t' [-Wimplicit-int]
+  159 | uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff)
+      |                                        ^~~~~~~~~~~~~~~
+../Core/Src/accelerometer.c:159:55: error: expected ';', ',' or ')' before '*' token
+  159 | uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff)
+      |                                                       ^
+make: *** [Core/Src/subdir.mk:37: Core/Src/accelerometer.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c:79:31: error: conflicting type qualifiers for 'xl_r'
+   79 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:70:40: note: previous definition of 'xl_r' with type 'volatile struct accelerometer_t'
+   70 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                        ^~~~
+../Core/Src/main.c:80:31: error: conflicting type qualifiers for 'xl_l'
+   80 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:71:40: note: previous definition of 'xl_l' with type 'volatile struct accelerometer_t'
+   71 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                        ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'acc_init' [-Wimplicit-function-declaration]
+  105 |         acc_init(&xl_l);
+      |         ^~~~~~~~
+../Core/Src/main.c:122:17: warning: implicit declaration of function 'accelerometer_read' [-Wimplicit-function-declaration]
+  122 |                 accelerometer_read(&xl_r, MLC_STATUS_MAINPAGE, status_mlc1);
+      |                 ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:125:34: warning: implicit declaration of function 'lsm6dsox_mlc_out_get' [-Wimplicit-function-declaration]
+  125 |                         status = lsm6dsox_mlc_out_get(&xl_r, mlc_out); // gets mlc interrupt code
+      |                                  ^~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:27:17 **** Incremental Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/accelerometer.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/accelerometer.d" -MT"Core/Src/accelerometer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/accelerometer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/accelerometer.c:5:
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Src/accelerometer.c: In function 'lsm6dsox_mlc_out_get':
+../Core/Src/accelerometer.c:167:54: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  167 |           status = accelerometer_read(acc, MLC0_SRC, (uint8_t)buff);    // reads MLC decision tree output
+      |                                                      ^
+../Core/Src/main.c:79:31: error: conflicting type qualifiers for 'xl_r'
+   79 | static struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:70:40: note: previous definition of 'xl_r' with type 'volatile struct accelerometer_t'
+   70 | static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
+      |                                        ^~~~
+../Core/Src/main.c:80:31: error: conflicting type qualifiers for 'xl_l'
+   80 | static struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR};
+      |                               ^~~~
+../Core/Src/main.c:71:40: note: previous definition of 'xl_l' with type 'volatile struct accelerometer_t'
+   71 | static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+      |                                        ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:125:62: warning: passing argument 2 of 'lsm6dsox_mlc_out_get' makes pointer from integer without a cast [-Wint-conversion]
+  125 |                         status = lsm6dsox_mlc_out_get(&xl_r, mlc_out); // gets mlc interrupt code
+      |                                                              ^~~~~~~
+      |                                                              |
+      |                                                              uint8_t {aka unsigned char}
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:109:78: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  109 | extern uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                                                     ~~~~~~~~~^~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:27:34 **** Incremental Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
+  114 | #endif /* INC_ACCELEROMETER_H_ */ß
+      |                                  ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:122:62: warning: passing argument 2 of 'lsm6dsox_mlc_out_get' makes pointer from integer without a cast [-Wint-conversion]
+  122 |                         status = lsm6dsox_mlc_out_get(&xl_r, mlc_out); // gets mlc interrupt code
+      |                                                              ^~~~~~~
+      |                                                              |
+      |                                                              uint8_t {aka unsigned char}
+In file included from ../Core/Src/main.c:21:
+../Core/Inc/accelerometer.h:109:78: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  109 | extern uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
+      |                                                                     ~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "MLC_firmware.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/Users/liz/Library/CloudStorage/OneDrive-Personal/Desktop/AfterGlitch/Desktop/Projects/Fall_2023/395new/firmware/MLC_firmware/STM32L031K6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MLC_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: MLC_firmware.elf
+ 
+arm-none-eabi-size   MLC_firmware.elf 
+arm-none-eabi-objdump -h -S  MLC_firmware.elf  > "MLC_firmware.list"
+   text	   data	    bss	    dec	    hex	filename
+  22196	    192	   2256	  24644	   6044	MLC_firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: MLC_firmware.list
+ 
+18:28:01 **** Incremental Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-size   MLC_firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22196	    192	   2256	  24644	   6044	MLC_firmware.elf
+Finished building: default.size.stdout
+ 

@@ -1,0 +1,10 @@
+18:28:01 **** Incremental Build of configuration Debug for project MLC_firmware ****
+make -j7 all 
+arm-none-eabi-size   MLC_firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22196	    192	   2256	  24644	   6044	MLC_firmware.elf
+Finished building: default.size.stdout
+ 
+
+18:28:01 Build Finished. 0 errors, 0 warnings. (took 452ms)
+

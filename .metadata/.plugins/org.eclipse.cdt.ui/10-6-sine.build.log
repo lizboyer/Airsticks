@@ -1,10 +1,33 @@
-14:42:15 **** Incremental Build of configuration Debug for project 10-6-sine ****
+12:48:33 **** Incremental Build of configuration Debug for project 10-6-sine ****
 make -j12 all 
+arm-none-eabi-gcc "../Core/Src/adpcm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adpcm.d" -MT"Core/Src/adpcm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adpcm.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:174:9: warning: unused variable 'second' [-Wunused-variable]
+  174 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:173:9: warning: unused variable 'first' [-Wunused-variable]
+  173 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
+ 
 arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
    text	   data	    bss	    dec	    hex	filename
-  52726	     24	   2056	  54806	   d616	10-6-sine.elf
+ 209134	     24	   2096	 211254	  33936	10-6-sine.elf
 Finished building: default.size.stdout
  
+Finished building: 10-6-sine.list
+ 
 
-14:42:15 Build Finished. 0 errors, 0 warnings. (took 476ms)
+12:48:35 Build Finished. 0 errors, 4 warnings. (took 2s.221ms)
 

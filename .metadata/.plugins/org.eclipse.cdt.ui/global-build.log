@@ -143,3 +143,638 @@ arm-none-eabi-size   10-6-sine.elf
   52726	     24	   2056	  54806	   d616	10-6-sine.elf
 Finished building: default.size.stdout
  
+15:07:41 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:148:46: error: 'cowbell' undeclared (first use in this function)
+  148 |         AudioFile.AudioFiles[1] = (uint32_t)&cowbell;
+      |                                              ^~~~~~~
+../Core/Src/main.c:148:46: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:151:46: error: 'floortom' undeclared (first use in this function); did you mean 'floorl'?
+  151 |         AudioFile.AudioFiles[2] = (uint32_t)&floortom;
+      |                                              ^~~~~~~~
+      |                                              floorl
+../Core/Src/main.c:154:46: error: 'hat' undeclared (first use in this function)
+  154 |         AudioFile.AudioFiles[3] = (uint32_t)&hat;
+      |                                              ^~~
+../Core/Src/main.c:157:46: error: 'ride' undeclared (first use in this function)
+  157 |         AudioFile.AudioFiles[4] = (uint32_t)&ride;
+      |                                              ^~~~
+../Core/Src/main.c:160:46: error: 'snare' undeclared (first use in this function)
+  160 |         AudioFile.AudioFiles[5] = (uint32_t)&snare;
+      |                                              ^~~~~
+../Core/Src/main.c:165:9: warning: unused variable 'second' [-Wunused-variable]
+  165 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:164:9: warning: unused variable 'first' [-Wunused-variable]
+  164 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:10:34 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/adpcm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adpcm.d" -MT"Core/Src/adpcm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adpcm.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:165:9: warning: unused variable 'second' [-Wunused-variable]
+  165 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:164:9: warning: unused variable 'first' [-Wunused-variable]
+  164 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `cowbell'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `floortom'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `hat'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:15:21 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `cowbell'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `floortom'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `hat'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:15:43 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `cowbell'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `floortom'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `hat'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:16:00 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `cowbell'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `floortom'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `hat'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:16:17 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `cowbell'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `floortom'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `hat'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:17:04 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/adpcm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adpcm.d" -MT"Core/Src/adpcm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adpcm.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:165:9: warning: unused variable 'second' [-Wunused-variable]
+  165 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:164:9: warning: unused variable 'first' [-Wunused-variable]
+  164 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `cowbell'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `floortom'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `hat'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:166: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:25:14 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:35:
+../Core/Inc/snare.h:16:62: error: redefinition of 'cowbell'
+   16 | const unsigned char __attribute__((section(".myAudioFiles")))cowbell[ADPCMD_PI] = {
+      |                                                              ^~~~~~~
+In file included from ../Core/Src/main.c:31:
+../Core/Inc/cowbell.h:16:62: note: previous definition of 'cowbell' with type 'const unsigned char[31250]'
+   16 | const unsigned char __attribute__((section(".myAudioFiles")))cowbell[ADPCMD_PI] = {
+      |                                                              ^~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:172:9: warning: unused variable 'second' [-Wunused-variable]
+  172 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:171:9: warning: unused variable 'first' [-Wunused-variable]
+  171 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:00:50 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `cowbell'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `floortom'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `hat'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:02:31 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `cowbell'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `floortom'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `hat'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:10:41 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `floortom'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `hat'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:10:53 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `hat'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:11:01 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `ride'
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:11:17 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `snare'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:11:25 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
+ 
+arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
+   text	   data	    bss	    dec	    hex	filename
+ 209074	     24	   2088	 211186	  338f2	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+Finished building: 10-6-sine.list
+ 
+16:13:22 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209074	     24	   2088	 211186	  338f2	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+16:15:42 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
+ 
+arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
+   text	   data	    bss	    dec	    hex	filename
+ 209074	     24	   2096	 211194	  338fa	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+Finished building: 10-6-sine.list
+ 
+16:15:47 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209074	     24	   2096	 211194	  338fa	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+16:16:25 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209074	     24	   2096	 211194	  338fa	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+16:17:12 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209074	     24	   2096	 211194	  338fa	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+16:17:46 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209074	     24	   2096	 211194	  338fa	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+16:20:05 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
+ 
+arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
+   text	   data	    bss	    dec	    hex	filename
+ 209102	     24	   2096	 211222	  33916	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+Finished building: 10-6-sine.list
+ 
+16:20:15 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209102	     24	   2096	 211222	  33916	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+16:22:36 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
+ 
+arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
+   text	   data	    bss	    dec	    hex	filename
+ 209106	     24	   2096	 211226	  3391a	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+Finished building: 10-6-sine.list
+ 
+16:22:49 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209106	     24	   2096	 211226	  3391a	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+16:24:10 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
+ 
+arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
+   text	   data	    bss	    dec	    hex	filename
+ 209106	     24	   2096	 211226	  3391a	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+Finished building: 10-6-sine.list
+ 
+16:24:26 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209106	     24	   2096	 211226	  3391a	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+16:28:41 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:187:9: warning: unused variable 'second' [-Wunused-variable]
+  187 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:186:9: warning: unused variable 'first' [-Wunused-variable]
+  186 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
+ 
+arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
+   text	   data	    bss	    dec	    hex	filename
+ 209134	     24	   2096	 211254	  33936	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+Finished building: 10-6-sine.list
+ 
+16:28:46 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209134	     24	   2096	 211254	  33936	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+16:33:38 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/adpcm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adpcm.d" -MT"Core/Src/adpcm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adpcm.o"
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/Plys/Desktop/ece395/395/10-6-sine/Debug/../Core/Src/main.c:188: undefined reference to `afnm'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: 10-6-sine.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:35:30 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/adpcm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adpcm.d" -MT"Core/Src/adpcm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adpcm.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:174:9: warning: unused variable 'second' [-Wunused-variable]
+  174 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:173:9: warning: unused variable 'first' [-Wunused-variable]
+  173 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
+ 
+arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
+   text	   data	    bss	    dec	    hex	filename
+ 209134	     24	   2096	 211254	  33936	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+Finished building: 10-6-sine.list
+ 
+12:48:33 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/adpcm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adpcm.d" -MT"Core/Src/adpcm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adpcm.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:174:9: warning: unused variable 'second' [-Wunused-variable]
+  174 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:173:9: warning: unused variable 'first' [-Wunused-variable]
+  173 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
+ 
+arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
+   text	   data	    bss	    dec	    hex	filename
+ 209134	     24	   2096	 211254	  33936	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+Finished building: 10-6-sine.list
+ 

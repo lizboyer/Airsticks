@@ -26,6 +26,15 @@
 #include "MY_CS43L22.h"
 #include <math.h>
 #include "adpcm.h"
+
+//including in the sound file
+#include "afnm.h"
+#include "cowbell.h"
+#include "floortom.h"
+#include "hat.h"
+#include "ride.h"
+#include "snare.h"
+//#endif
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +54,7 @@
 //playback defines -db
 tTwoByte newSample;
 static AudioElement AudioFile;
-static uint8_t AudioFileToPlay = 0;
+static uint8_t AudioFileToPlay = 0; //new -db, temporarily choosing to play new file
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -143,6 +152,23 @@ int main(void)
 
 	AudioFile.AudioFiles[0] = (uint32_t)&afnm;
 	AudioFile.AudioSize[0] = NELEMS(afnm);
+
+	//new -db
+	AudioFile.AudioFiles[1] = (uint32_t)&cowbell;
+	AudioFile.AudioSize[1] = NELEMS(cowbell);
+
+	AudioFile.AudioFiles[2] = (uint32_t)&floortom;
+	AudioFile.AudioSize[2] = NELEMS(floortom);
+
+	AudioFile.AudioFiles[3] = (uint32_t)&hat;
+	AudioFile.AudioSize[3] = NELEMS(hat);
+
+	AudioFile.AudioFiles[4] = (uint32_t)&ride;
+	AudioFile.AudioSize[4] = NELEMS(ride);
+
+	AudioFile.AudioFiles[5] = (uint32_t)&snare;
+	AudioFile.AudioSize[5] = NELEMS(snare);
+
 
   char* first = (char*)(0x08005000);
   char* second = (char*)(0x08005001);
@@ -447,8 +473,20 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		}
 
 
-
-			if ((repetition==0) & (sample_position < AudioFile.AudioSize[AudioFileToPlay]))
+			if (sample_position >= AudioFile.AudioSize[AudioFileToPlay])
+			{
+				sample_position = 0;
+				if (AudioFileToPlay < 6)
+				{
+					AudioFileToPlay++;
+				}
+				else
+				{
+					AudioFileToPlay = 0;
+				}
+//				HAL_DELAY()
+			}
+			else if ((repetition==0) & (sample_position < AudioFile.AudioSize[AudioFileToPlay]))
 			{  // new sample is generated
 				repetition = 7;	// reinitialize repetition down counter
 				if (nibble)

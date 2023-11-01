@@ -24,7 +24,7 @@
 #define __ADPCM_C
 
 #include "adpcm.h"
-#include "afnm.h"
+//#include "afnm.h"
 
 /* Private define ------------------------------------------------------------*/
 /* Quantizer step size lookup table */

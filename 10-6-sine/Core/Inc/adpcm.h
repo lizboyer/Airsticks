@@ -27,7 +27,7 @@
 #define ADPCMDATA_DIM 7755 
 
 #define ADPCMD_PI		31250  //updated this to be our length
-#define NUMBER_OF_AUDIO_FILES 1
+#define NUMBER_OF_AUDIO_FILES 6 //new -db
 
 /* Includes ------------------------------------------------------------------*/
 //#include "stm32l1xx.h" //-db this must be a file we aren't using?
@@ -49,6 +49,11 @@ typedef struct
 
 /* Exported constants --------------------------------------------------------*/
 extern const unsigned char afnm[ADPCMD_PI];
+extern const unsigned char cowbell[ADPCMD_PI];
+extern const unsigned char floortom[ADPCMD_PI];
+extern const unsigned char hat[ADPCMD_PI];
+extern const unsigned char ride[ADPCMD_PI];
+extern const unsigned char snare[ADPCMD_PI];
 /* Exported macro ------------------------------------------------------------*/
 #define NELEMS(x)	(sizeof(x) / sizeof((x)[0]))
 //last of the things i added from tutorial part 2 -db

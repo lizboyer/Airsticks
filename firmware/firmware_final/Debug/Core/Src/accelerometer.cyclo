@@ -1,0 +1,3 @@
+../Core/Src/accelerometer.c:20:19:acc_init	4
+../Core/Src/accelerometer.c:56:19:read_axis	12
+../Core/Src/accelerometer.c:111:19:accelerometer_write	1

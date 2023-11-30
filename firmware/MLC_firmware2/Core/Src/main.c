@@ -68,7 +68,7 @@ static void MX_LPUART1_UART_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
-static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
+//static volatile struct accelerometer_t xl_l = {.slave_r_addr = ACC1_R_ADDR, .slave_w_addr = ACC1_W_ADDR, .irq_pin = GPIO_PIN_1};
 static volatile HAL_StatusTypeDef status;
 
 int _write(int fd, char* ptr, int len) {
@@ -99,7 +99,7 @@ int main(void)
 	MX_I2C1_Init();
 	MX_LPUART1_UART_Init();
 
-	acc_init(&xl_l);
+//	acc_init(&xl_l);
 	acc_init(&xl_r);
 
 	MX_TIM2_Init();
@@ -336,10 +336,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		status = read_axis(&xl_r, ALL_AXIS);
 
 	}
-	if(xl_l.irq_pin == GPIO_Pin)
-	{
-		status = read_axis(&xl_l, ALL_AXIS);
-	}
+//	if(xl_l.irq_pin == GPIO_Pin)
+//	{
+//		status = read_axis(&xl_l, ALL_AXIS);
+//	}
 
 	return;
 }

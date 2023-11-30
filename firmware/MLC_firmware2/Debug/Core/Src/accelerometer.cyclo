@@ -1,5 +1,0 @@
-../Core/Src/accelerometer.c:22:19:acc_init	9
-../Core/Src/accelerometer.c:80:19:read_axis	15
-../Core/Src/accelerometer.c:135:19:accelerometer_write	1
-../Core/Src/accelerometer.c:145:19:accelerometer_read	1
-../Core/Src/accelerometer.c:159:10:lsm6dsox_mlc_out_get	3

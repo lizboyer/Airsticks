@@ -2,7 +2,7 @@ LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=macosx
 activeLaunchTarget=null\:---
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:firmware_final,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MLC_firmware2 Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:firmware_final,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MLC_firmware2 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:firmware_temp Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MLC_firmware\ Configuration/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MLC_firmware\ Configuration/activeLaunchTarget=null\:---
@@ -10,5 +10,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MLC_firmware\ Debug/activeLaunc
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MLC_firmware\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:firmware\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:firmware\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:firmware_final/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:firmware_temp\ Debug/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:MLC_firmware\ Configuration/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:MLC_firmware\ Configuration/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

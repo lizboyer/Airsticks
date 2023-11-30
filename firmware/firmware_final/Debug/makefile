@@ -60,8 +60,8 @@ all: main-build
 main-build: firmware_final.elf secondary-outputs
 
 # Tool invocations
-firmware_final.elf firmware_final.map: $(OBJS) $(USER_OBJS) /Users/chris/Desktop/ECE\ 395/airsticks/firmware/firmware_final/STM32G441KBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "firmware_final.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/chris/Desktop/ECE 395/airsticks/firmware/firmware_final/STM32G441KBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="firmware_final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+firmware_final.elf firmware_final.map: $(OBJS) $(USER_OBJS) C:\Users\eboyer2\395\AirSticks\firmware\firmware_final\STM32G441KBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "firmware_final.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\eboyer2\395\AirSticks\firmware\firmware_final\STM32G441KBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="firmware_final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

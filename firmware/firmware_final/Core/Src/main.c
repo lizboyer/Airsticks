@@ -19,6 +19,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "accelerometer.h"
+#include <stdio.h>
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -69,6 +71,13 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+static volatile HAL_StatusTypeDef status;
+
+int _write(int fd, char* ptr, int len) {
+  HAL_UART_Transmit(&hlpuart1, (uint8_t *) ptr, len, HAL_MAX_DELAY);
+  return len;
+}
 
 /* USER CODE END 0 */
 
@@ -121,8 +130,13 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	if(xl_r.z_xlr < -0x1000)
 	{
+		printf("hit\r\n");
 		HAL_TIM_Base_Start_IT(&htim2);
 	}
+//	printf("howdy\r\n");
+//	printf("%d\r\n",xl_r.x_xlr);
+//	printf("%d\r\n",xl_r.y_xlr);
+//	printf("%d\r\n",xl_r.z_xlr);
   }
   /* USER CODE END 3 */
 }

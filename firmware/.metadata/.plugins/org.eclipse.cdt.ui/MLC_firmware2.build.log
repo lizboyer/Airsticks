@@ -1,45 +1,12 @@
-14:58:50 **** Incremental Build of configuration Debug for project MLC_firmware2 ****
-make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L031xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-In file included from ../Core/Src/main.c:21:
-../Core/Inc/accelerometer.h:114:34: warning: extra tokens at end of #endif directive [-Wendif-labels]
-  114 | #endif /* INC_ACCELEROMETER_H_ */ß
-      |                                  ^
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:135:66: warning: passing argument 2 of 'lsm6dsox_mlc_out_get' makes pointer from integer without a cast [-Wint-conversion]
-  135 |                         mlc_status = lsm6dsox_mlc_out_get(&xl_r, mlc_out); // gets mlc interrupt code
-      |                                                                  ^~~~~~~
-      |                                                                  |
-      |                                                                  uint8_t {aka unsigned char}
-In file included from ../Core/Src/main.c:21:
-../Core/Inc/accelerometer.h:109:78: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
-  109 | extern uint32_t lsm6dsox_mlc_out_get(volatile accelerometer_t* acc, uint8_t *buff);
-      |                                                                     ~~~~~~~~~^~~~
-../Core/Src/main.c:118:18: warning: variable 'mlc_status' set but not used [-Wunused-but-set-variable]
-  118 |         uint32_t mlc_status;
-      |                  ^~~~~~~~~~
-../Core/Src/main.c:115:17: warning: variable 'old_status_mlc1' set but not used [-Wunused-but-set-variable]
-  115 |         uint8_t old_status_mlc1 = 0;
-      |                 ^~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:355:11: warning: unused variable 'msg' [-Wunused-variable]
-  355 |   uint8_t msg[25] = "test\n";
-      |           ^~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:125:17: warning: 'temp' is used uninitialized [-Wuninitialized]
-  125 |                 accelerometer_read(&xl_r, MLC0_SRC, temp);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "MLC_firmware2.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/Users/liz/Library/CloudStorage/OneDrive-Personal/Desktop/AfterGlitch/Desktop/Projects/Fall_2023/395new/firmware/MLC_firmware2/STM32L031K6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MLC_firmware2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: MLC_firmware2.elf
- 
-arm-none-eabi-size   MLC_firmware2.elf 
-arm-none-eabi-objdump -h -S  MLC_firmware2.elf  > "MLC_firmware2.list"
-   text	   data	    bss	    dec	    hex	filename
-  22376	    192	   2264	  24832	   6100	MLC_firmware2.elf
-Finished building: default.size.stdout
- 
-Finished building: MLC_firmware2.list
+19:33:14 **** Clean-only build of configuration Debug for project MLC_firmware2 ****
+make -j12 clean 
+rm -rf ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cortex.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cortex.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cortex.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cortex.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dma.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dma.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dma.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_dma.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_exti.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_exti.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_exti.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_exti.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ex.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ex.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ex.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ex.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ramfunc.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ramfunc.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ramfunc.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash_ramfunc.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_gpio.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_gpio.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_gpio.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_gpio.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c_ex.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c_ex.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c_ex.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_i2c_ex.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr_ex.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr_ex.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr_ex.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_pwr_ex.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc_ex.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc_ex.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc_ex.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_rcc_ex.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim_ex.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim_ex.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim_ex.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim_ex.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart.su ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart_ex.cyclo ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart_ex.d ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart_ex.o ./Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart_ex.su
+rm -rf ./Core/Startup/startup_stm32l031k6tx.d ./Core/Startup/startup_stm32l031k6tx.o
+rm -rf ./Core/Src/accelerometer.cyclo ./Core/Src/accelerometer.d ./Core/Src/accelerometer.o ./Core/Src/accelerometer.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32l0xx_hal_msp.cyclo ./Core/Src/stm32l0xx_hal_msp.d ./Core/Src/stm32l0xx_hal_msp.o ./Core/Src/stm32l0xx_hal_msp.su ./Core/Src/stm32l0xx_it.cyclo ./Core/Src/stm32l0xx_it.d ./Core/Src/stm32l0xx_it.o ./Core/Src/stm32l0xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32l0xx.cyclo ./Core/Src/system_stm32l0xx.d ./Core/Src/system_stm32l0xx.o ./Core/Src/system_stm32l0xx.su
+rm -rf MLC_firmware2.elf MLC_firmware2.list MLC_firmware2.map default.size.stdout
+rm: can't remove 'MLC_firmware2.elf': Permission denied
+make: [makefile:80: clean] Error 1 (ignored)
  
 
-14:58:51 Build Finished. 0 errors, 6 warnings. (took 1s.136ms)
+19:33:14 Build Finished. 0 errors, 0 warnings. (took 631ms)
 

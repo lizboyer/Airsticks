@@ -45,7 +45,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define PI 3.14159f
-
 #define F_SAMPLE			50000.0f
 #define F_OUT				300.0f
 

@@ -7,4 +7,12 @@
 	<section name="CResourceRenameRefactoringInputPage">
 		<item key="updateReferences" value="true"/>
 	</section>
+	<section name="PDOMSearchPage">
+		<item key="caseSensitive" value="false"/>
+		<item key="searchFlags" value="227191"/>
+		<list key="previousPatterns">
+			<item value="stm32g4xx_hal"/>
+			<item value="stm32g4xx_halh"/>
+		</list>
+	</section>
 </section>

@@ -1,0 +1,10 @@
+13:56:12 **** Incremental Build of configuration Debug for project firmware_final ****
+make -j12 all 
+arm-none-eabi-size   firmware_final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  83290	    100	   2028	  85418	  14daa	firmware_final.elf
+Finished building: default.size.stdout
+ 
+
+13:56:12 Build Finished. 0 errors, 0 warnings. (took 474ms)
+

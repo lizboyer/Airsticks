@@ -47,8 +47,9 @@ I2C_HandleTypeDef hi2c1;
 
 UART_HandleTypeDef hlpuart1;
 
-TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim4;
+TIM_HandleTypeDef htim7;
 
 /* USER CODE BEGIN PV */
 static volatile struct accelerometer_t xl_r = {.slave_r_addr = ACC0_R_ADDR, .slave_w_addr = ACC0_W_ADDR, .irq_pin = GPIO_PIN_0};
@@ -64,7 +65,8 @@ static void MX_DAC1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_LPUART1_UART_Init(void);
 static void MX_TIM2_Init(void);
-static void MX_TIM1_Init(void);
+static void MX_TIM4_Init(void);
+static void MX_TIM7_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -77,6 +79,9 @@ int _write(int fd, char* ptr, int len) {
   HAL_UART_Transmit(&hlpuart1, (uint8_t *) ptr, len, HAL_MAX_DELAY);
   return len;
 }
+volatile int allow_hit_r;
+volatile int allow_hit_l;
+
 /* USER CODE END 0 */
 
 /**
@@ -111,14 +116,14 @@ int main(void)
   MX_I2C1_Init();
   MX_LPUART1_UART_Init();
   MX_TIM2_Init();
-  MX_TIM1_Init();
+  MX_TIM4_Init();
+  MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_TIM_Base_Start_IT(&htim1);
   HAL_TIM_Base_Start_IT(&htim2);
 
   uint8_t status_mlc1;
-
+  uint16_t timer_val;
   acc_init(&xl_l);
   acc_init(&xl_r);
 
@@ -127,6 +132,8 @@ int main(void)
 
   if (status != HAL_OK) printf("init error\r\n");
 
+  allow_hit_r = 1;
+  allow_hit_l = 1;
 
   /* USER CODE END 2 */
 
@@ -136,48 +143,23 @@ int main(void)
   {
 	  status = read_axis(&xl_r, ALL_AXIS);
 	  status = read_axis(&xl_l, ALL_AXIS);
-//	  accelerometer_read(&xl_r, MLC_STATUS_MAINPAGE, &status_mlc1);
-//	  printf("status change: %d\r\n",&status_mlc1);
-	  status = accelerometer_read(&xl_r, MLC0_SRC, &status_mlc1);
-//	  printf("status change: %d\r\n",&status_mlc1);
-//	  status = accelerometer_read(&xl_r, MLC_STATUS_MAINPAGE, &status_mlc1);
-//	  printf("status page: %d\r\n",&status_mlc1);
 
 
-//		if(xl_r.z_xlr < -0x2000) // hit on right
-//		{
-//			if(xl_r.x_xlr < -0x2000) // right-right
-//			{
-//				if(xl_r.z_xlr > -0x4000) // right-up
-//				{
-//					printf("right-up\n\r");
-//				}
-//				printf("right-right\n\r");
-//			}
-//			if(xl_r.x_xlr > -0x8000) // right-left
-//			{
-//				printf("right-left\n\r");
-//			}
-//			printf("hit R\r\n");
-//			HAL_TIM_Base_Start_IT(&htim1);
-//		}
-//		if(xl_l.z_xlr < -0x2000)
-//		{
-//			printf("hit L \r\n");
-//			HAL_TIM_Base_Start_IT(&htim2);
-//		}
-
-	if(xl_r.z_xlr < -0x2000) // hit on right
+	if(xl_r.z_xlr < -0x2000 && allow_hit_r) // hit on right
 	{
 		if(xl_r.x_xlr < -0x100) // right
 		{
 			if(xl_r.y_xlr < -0x1000) // right-up
 			{
 				printf("right-up\n\r");
+				status = HAL_TIM_Base_Start_IT(&htim4);
+				allow_hit_r = 0;
 			}
 			if(xl_r.y_xlr > 0x4800) // right-down
 			{
 				printf("right-down\n\r");
+				status = HAL_TIM_Base_Start_IT(&htim4);
+				allow_hit_r = 0;
 			}
 		}
 
@@ -186,26 +168,56 @@ int main(void)
 			if(xl_r.y_xlr < -0x1000) // left-up
 			{
 				printf("left-up\n\r");
+				status = HAL_TIM_Base_Start_IT(&htim4);
+				allow_hit_r = 0;
 			}
 			if(xl_r.y_xlr > 0x6000) // left-down
 			{
 				printf("left-down\n\r");
+				status = HAL_TIM_Base_Start_IT(&htim4);
+				allow_hit_r = 0;
 			}
-//			if(xl_r.y_xlr > 0x4500) // right-down
-//			{
-//				printf("left-down\n\r");
-//			}
-//					printf("x:%d\r\n",xl_r.x_xlr);
-//					printf("y:%d\r\n",xl_r.y_xlr);
-//					printf("z:%d\r\n",xl_r.z_xlr);
 		}
 	}
 
-//		printf("howdy\r\n");
-//		printf("x:%d\r\n",xl_r.x_xlr);
-//		printf("y:%d\r\n",xl_r.y_xlr);
-//		printf("z:%d\r\n",xl_r.z_xlr);
-	  if (status != HAL_OK) printf("run error\r\n");
+	if(xl_l.z_xlr < -0x2000 && allow_hit_l) // hit on right
+	{
+		if(xl_l.x_xlr < -0x100) // right
+		{
+			if(xl_l.y_xlr < -0x1000) // right-up
+			{
+				printf("left right-up\n\r");
+				status = HAL_TIM_Base_Start_IT(&htim7);
+				allow_hit_l = 0;
+			}
+			if(xl_l.y_xlr > 0x4800) // right-down
+			{
+				printf("left right-down\n\r");
+				status = HAL_TIM_Base_Start_IT(&htim7);
+				allow_hit_l = 0;
+			}
+		}
+
+		if(xl_l.x_xlr > 0x00) // left
+		{
+			if(xl_l.y_xlr < -0x1000) // left-up
+			{
+				printf("left left-up\n\r");
+				status = HAL_TIM_Base_Start_IT(&htim7);
+				allow_hit_l = 0;
+			}
+			if(xl_l.y_xlr > 0x6000) // left-down
+			{
+				printf("left left-down\n\r");
+				status = HAL_TIM_Base_Start_IT(&htim7);
+				allow_hit_l = 0;
+			}
+		}
+	}
+//	if(xl_l.z_xlr < -0x2000 && allow_hit_l==0) // hit on right
+//		printf("cooldown\r\n");
+
+//	  if (status != HAL_OK) printf("run error\r\n");
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -402,53 +414,6 @@ static void MX_LPUART1_UART_Init(void)
 }
 
 /**
-  * @brief TIM1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM1_Init(void)
-{
-
-  /* USER CODE BEGIN TIM1_Init 0 */
-
-  /* USER CODE END TIM1_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM1_Init 1 */
-
-  /* USER CODE END TIM1_Init 1 */
-  htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 15999;
-  htim1.Init.CounterMode = TIM_COUNTERMODE_DOWN;
-  htim1.Init.Period = 1;
-  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim1.Init.RepetitionCounter = 0;
-  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM1_Init 2 */
-
-  /* USER CODE END TIM1_Init 2 */
-
-}
-
-/**
   * @brief TIM2 Initialization Function
   * @param None
   * @retval None
@@ -494,6 +459,89 @@ static void MX_TIM2_Init(void)
 }
 
 /**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 1000;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 7200;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+
+  /* USER CODE END TIM4_Init 2 */
+
+}
+
+/**
+  * @brief TIM7 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM7_Init(void)
+{
+
+  /* USER CODE BEGIN TIM7_Init 0 */
+
+  /* USER CODE END TIM7_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM7_Init 1 */
+
+  /* USER CODE END TIM7_Init 1 */
+  htim7.Instance = TIM7;
+  htim7.Init.Prescaler = 1000;
+  htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim7.Init.Period = 65535;
+  htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim7, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM7_Init 2 */
+
+  /* USER CODE END TIM7_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -530,10 +578,22 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   uint8_t msg[25] = "test\n";
 
   // Check which version of the timer triggered this callback and toggle LED
+  if (htim == &htim7)
+  {
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+//	  printf("hit 4 \r\n");
+	  allow_hit_l = 1;
+  }
+  if (htim == &htim4)
+  {
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+//	  printf("hit 4 \r\n");
+	  allow_hit_r = 1;
+  }
   if (htim == &htim2)
   {
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
-	  printf("hit /r/n");
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+	  printf("hit 2 \r\n");
   }
 //  if (htim == &htim21)
 //  {

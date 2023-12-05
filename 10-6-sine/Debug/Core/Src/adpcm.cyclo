@@ -1,0 +1,2 @@
+../Core/Src/adpcm.c:54:9:ADPCM_Encode	10
+../Core/Src/adpcm.c:146:9:ADPCM_Decode	9

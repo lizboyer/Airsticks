@@ -1,0 +1,4 @@
+../Core/Src/accelerometer.c:21:19:acc_init	24	static
+../Core/Src/accelerometer.c:78:19:read_axis	40	static
+../Core/Src/accelerometer.c:133:19:accelerometer_write	40	static,ignoring_inline_asm
+../Core/Src/accelerometer.c:142:19:accelerometer_read	48	static,ignoring_inline_asm

@@ -39,25 +39,25 @@ HAL_StatusTypeDef acc_init (volatile accelerometer_t* acc)
     status = read_axis(acc, ALL_AXIS);
 
     // enable cfg reg
-    status = accelerometer_write(acc, MLC_INT1, 0x80);
-    if (status != HAL_OK) return status;
+//    status = accelerometer_write(acc, MLC_INT1, 0x80);
+//    if (status != HAL_OK) return status;
 
     // enable MLC
-    status = accelerometer_write(acc, MLC_EN, 0x10);
-    if (status != HAL_OK) return status;
+//    status = accelerometer_write(acc, MLC_EN, 0x10);
+//    if (status != HAL_OK) return status;
 
     // MLC route to INT1
-    status = accelerometer_write(acc, MLC_INT1, 0x01);
-    if (status != HAL_OK) return status;
+//    status = accelerometer_write(acc, MLC_INT1, 0x01);
+//    if (status != HAL_OK) return status;
 
-    for (int i = 0; i < (sizeof(mlc_configuration) /
-                      sizeof(ucf_line_t) ); i++ ) {
-      accelerometer_write(acc, mlc_configuration[i].address, (uint8_t)mlc_configuration[i].data);
-    }
+//    for (int i = 0; i < (sizeof(mlc_configuration) /
+//                      sizeof(ucf_line_t) ); i++ ) {
+//      accelerometer_write(acc, mlc_configuration[i].address, (uint8_t)mlc_configuration[i].data);
+//    }
 
     // disable cfg reg
-    status = accelerometer_write(acc, MLC_INT1, 0x00);
-    if (status != HAL_OK) return status;
+//    status = accelerometer_write(acc, MLC_INT1, 0x00);
+//    if (status != HAL_OK) return status;
 
     return status;
 
@@ -78,7 +78,7 @@ HAL_StatusTypeDef acc_init (volatile accelerometer_t* acc)
 HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis)
 {
 
-	__disable_irq();
+//	__disable_irq();
 
     static uint8_t read_buffer[] = { 0 };
 
@@ -112,7 +112,7 @@ HAL_StatusTypeDef read_axis(volatile accelerometer_t* acc, axis_t axis)
 		  break;
 	}
 
-    __enable_irq();
+//    __enable_irq();
 
     return status;
 }

@@ -71,8 +71,8 @@ static void MX_DAC1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_LPUART1_UART_Init(void);
 static void MX_TIM2_Init(void);
-static void MX_TIM4_Init(void);
 static void MX_TIM7_Init(void);
+static void MX_TIM4_Init(void);
 /* USER CODE BEGIN PFP */
 //SINE WAVE START
 float mySinVal;
@@ -105,8 +105,8 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	//SINE WAVE START
-	sample_dt = F_OUT/F_SAMPLE;
-	sample_N = F_SAMPLE/F_OUT;
+//	sample_dt = F_OUT/F_SAMPLE;
+//	sample_N = F_SAMPLE/F_OUT;
 	//SINE WAVE END
   /* USER CODE END 1 */
 
@@ -132,8 +132,8 @@ int main(void)
   MX_I2C1_Init();
   MX_LPUART1_UART_Init();
   MX_TIM2_Init();
-  MX_TIM4_Init();
   MX_TIM7_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   //SINE WAVE START
   HAL_DAC_Start(&hdac1,DAC_CHANNEL_1);
@@ -144,8 +144,15 @@ int main(void)
   uint8_t status_mlc1;
   uint16_t timer_val;
 
+
   acc_init(&xl_l);
   acc_init(&xl_r);
+
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET);
+
 
   status = accelerometer_read(&xl_r, WHO_AM_I, &status_mlc1);
   printf("ID: %d\r\n",status_mlc1);
@@ -154,7 +161,7 @@ int main(void)
   allow_hit_r = 1;
   allow_hit_l = 1;
 
-  HAL_TIM_Base_Start_IT(&htim2);
+//  HAL_TIM_Base_Start_IT(&htim2);
 
   /* USER CODE END 2 */
 
@@ -162,20 +169,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-//	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_8B_R, 127);
-
-	  //UNCOMMENT ME FOR JANK SOUND :)
-//	  mySinVal = sinf(i_t * 2 * PI * sample_dt);//Convert from float to decimal
-//	  myDacVal = (mySinVal + 1)*127; //Output the sample to the STM DAC
-//	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_8B_R, myDacVal);
-//	  i_t++;
-//	  if(i_t>= sample_N) i_t = 0;
-//	  HAL_Delay(1);
-	  //END UNCOMMENT FOR JANK SOUND
-
-	  status = read_axis(&xl_r, ALL_AXIS);
-	  status = read_axis(&xl_l, ALL_AXIS);
-
 
 	if(xl_r.z_xlr < -0x2000 && allow_hit_r) // hit on right
 	{
@@ -183,14 +176,21 @@ int main(void)
 		{
 			if(xl_r.y_xlr < -0x1000) // right-up
 			{
+				if(allow_hit_r){
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+				}
 				printf("right-up\n\r");
 				  HAL_TIM_Base_Start_IT(&htim4);
 				allow_hit_r = 0;
 			}
 			if(xl_r.y_xlr > 0x4800) // right-down
 			{
+				if(allow_hit_r){
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+				}
 				printf("right-down\n\r");
 				  HAL_TIM_Base_Start_IT(&htim4);
+
 				allow_hit_r = 0;
 			}
 		}
@@ -199,12 +199,18 @@ int main(void)
 		{
 			if(xl_r.y_xlr < -0x1000) // left-up
 			{
+				if(allow_hit_r){
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+				}
 				printf("left-up\n\r");
 				  HAL_TIM_Base_Start_IT(&htim4);
 				allow_hit_r = 0;
 			}
 			if(xl_r.y_xlr > 0x6000) // left-down
 			{
+				if(allow_hit_r){
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+				}
 				printf("left-down\n\r");
 				  HAL_TIM_Base_Start_IT(&htim4);
 				allow_hit_r = 0;
@@ -218,12 +224,18 @@ int main(void)
 		{
 			if(xl_l.y_xlr < -0x1000) // right-up
 			{
+				if(allow_hit_l){
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
+				}
 				printf("left right-up\n\r");
 				  HAL_TIM_Base_Start_IT(&htim7);
 				allow_hit_l = 0;
 			}
 			if(xl_l.y_xlr > 0x4800) // right-down
 			{
+				if(allow_hit_l){
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
+				}
 				printf("left right-down\n\r");
 				  HAL_TIM_Base_Start_IT(&htim7);
 				allow_hit_l = 0;
@@ -234,19 +246,59 @@ int main(void)
 		{
 			if(xl_l.y_xlr < -0x1000) // left-up
 			{
+				if(allow_hit_l){
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
+				}
 				printf("left left-up\n\r");
 				  HAL_TIM_Base_Start_IT(&htim7);
 				allow_hit_l = 0;
 			}
 			if(xl_l.y_xlr > 0x6000) // left-down
 			{
+				if(allow_hit_l){
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
+				}
 				printf("left left-down\n\r");
 				  HAL_TIM_Base_Start_IT(&htim7);
 				allow_hit_l = 0;
 
 			}
 		}
-	}    /* USER CODE END WHILE */
+	}
+
+	status = read_axis(&xl_r, ALL_AXIS);
+	status = read_axis(&xl_l, ALL_AXIS);
+//
+//
+//
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_r.slave_r_addr, OUTX_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_r.x_xlr = *read_buffer << 8;
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_r.slave_r_addr, OUTX_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_r.x_xlr = xl_r.x_xlr + *read_buffer;
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_r.slave_r_addr, OUTY_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_r.y_xlr = *read_buffer << 8;
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_r.slave_r_addr, OUTY_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_r.y_xlr = xl_r.y_xlr + *read_buffer;
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_r.slave_r_addr, OUTZ_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_r.z_xlr = *read_buffer << 8;
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_r.slave_r_addr, OUTZ_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_r.z_xlr = xl_r.z_xlr + *read_buffer;
+//
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_l.slave_r_addr, OUTX_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_l.x_xlr = *read_buffer << 8;
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_l.slave_r_addr, OUTX_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_l.x_xlr = xl_l.x_xlr + *read_buffer;
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_l.slave_r_addr, OUTY_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_l.y_xlr = *read_buffer << 8;
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_l.slave_r_addr, OUTY_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_l.y_xlr = xl_l.y_xlr + *read_buffer;
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_l.slave_r_addr, OUTZ_H_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_l.z_xlr = *read_buffer << 8;
+//	  status = HAL_I2C_Mem_Read(&hi2c1, xl_l.slave_r_addr, OUTZ_L_A, I2C_MEMADD_SIZE_8BIT, read_buffer, sizeof(read_buffer), HAL_MAX_DELAY);
+//	  xl_l.z_xlr = xl_l.z_xlr + *read_buffer;
+
+
+    /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
@@ -327,7 +379,7 @@ static void MX_DAC1_Init(void)
 
   /** DAC channel OUT1 config
   */
-  sConfig.DAC_HighFrequency = DAC_HIGH_FREQUENCY_INTERFACE_MODE_AUTOMATIC;
+  sConfig.DAC_HighFrequency = DAC_HIGH_FREQUENCY_INTERFACE_MODE_DISABLE;
   sConfig.DAC_DMADoubleDataMode = DISABLE;
   sConfig.DAC_SignedFormat = DISABLE;
   sConfig.DAC_SampleAndHold = DAC_SAMPLEANDHOLD_DISABLE;
@@ -507,7 +559,7 @@ static void MX_TIM4_Init(void)
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 1000;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 7200;
+  htim4.Init.Period = 7500;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
@@ -584,11 +636,21 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11, GPIO_PIN_RESET);
+
   /*Configure GPIO pins : PB0 PB3 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_3;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PA8 PA9 PA10 PA11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
@@ -612,15 +674,22 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 //   Check which version of the timer triggered this callback and toggle LED
   if (htim == &htim7)
   {
-//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 //	  printf("hit 4 \r\n");
 	  allow_hit_l = 1;
+
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET);
   }
   if (htim == &htim4)
   {
-//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 //	  printf("hit 4 \r\n");
 	  allow_hit_r = 1;
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET);
   }
 
   // Check which version of the timer triggered this callback and toggle LED
@@ -633,7 +702,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	  mySinVal = sinf(i_t * 2 * PI * sample_dt);//Convert from float to decimal
 	  myDacVal = (mySinVal + 1)*127; //Output the sample to the STM DAC
 	  offset = myDacVal - 127;
-	  printf("%d\r\n",myDacVal);
+//	  printf("%d\r\n",myDacVal);
 	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_8B_R, myDacVal);
 	  i_t++;
 	  if(i_t>= sample_N) i_t = 0;

@@ -2066,10 +2066,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
  8033a36:	b2da      	uxtb	r2, r3
  8033a38:	4b4e      	ldr	r3, [pc, #312]	; (8033b74 <HAL_TIM_PeriodElapsedCallback+0x1b4>)
  8033a3a:	701a      	strb	r2, [r3, #0]
-
+	}
 	  /* USER CODE END TIM3_IRQn 0 */
 	  /* USER CODE BEGIN TIM3_IRQn 1 */
-	}
+
 	  /* USER CODE END TIM3_IRQn 1 */
 }
  8033a3c:	e093      	b.n	8033b66 <HAL_TIM_PeriodElapsedCallback+0x1a6>

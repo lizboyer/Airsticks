@@ -1,71 +1,122 @@
-13:45:53 **** Incremental Build of configuration Debug for project firmware_final ****
+01:01:33 **** Incremental Build of configuration Debug for project 10-6-sine ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G441xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209134	     24	   2096	 211254	  33936	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+01:01:46 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-size   10-6-sine.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 209134	     24	   2096	 211254	  33936	10-6-sine.elf
+Finished building: default.size.stdout
+ 
+01:02:30 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:175:7: warning: unused variable 'second' [-Wunused-variable]
-  175 | char* second = (char*)(0x08005001);
-      |       ^~~~~~
-../Core/Src/main.c:174:7: warning: unused variable 'first' [-Wunused-variable]
-  174 | char* first = (char*)(0x08005000);
-      |       ^~~~~
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:461:11: warning: unused variable 'msg' [-Wunused-variable]
-  461 |   uint8_t msg[25] = "test\n";
-      |           ^~~
+../Core/Src/main.c:173:9: warning: unused variable 'second' [-Wunused-variable]
+  173 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:172:9: warning: unused variable 'first' [-Wunused-variable]
+  172 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:526:1: error: expected identifier or '(' before '}' token
+  526 | }
+      | ^
+In file included from ../Core/Src/main.c:26:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+../Core/Src/main.c:56:16: warning: 'AudioFileToPlay' defined but not used [-Wunused-variable]
+   56 | static uint8_t AudioFileToPlay = 0; //new -db, temporarily choosing to play new file
+      |                ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+01:02:55 **** Incremental Build of configuration Debug for project 10-6-sine ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:173:9: warning: unused variable 'second' [-Wunused-variable]
+  173 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:172:9: warning: unused variable 'first' [-Wunused-variable]
+  172 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
 In file included from ../Core/Src/main.c:26:
 ../Core/Src/main.c: At top level:
-../Core/Inc/MY_CS43L22.h:66:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
-   66 | static void write_register(uint8_t reg, uint8_t *data);
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
       |             ^~~~~~~~~~~~~~
-../Core/Inc/MY_CS43L22.h:67:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
-   67 | static void read_register(uint8_t reg, uint8_t *data);
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
       |             ^~~~~~~~~~~~~
-../Core/Src/main.c:57:16: warning: 'AudioFileToPlay' defined but not used [-Wunused-variable]
-   57 | static uint8_t AudioFileToPlay = 1; //afnm fix
+../Core/Src/main.c:56:16: warning: 'AudioFileToPlay' defined but not used [-Wunused-variable]
+   56 | static uint8_t AudioFileToPlay = 0; //new -db, temporarily choosing to play new file
       |                ^~~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "firmware_final.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395 updated acc\395\firmware\firmware_final\STM32G441KBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="firmware_final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: firmware_final.elf
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
  
-arm-none-eabi-size   firmware_final.elf 
-arm-none-eabi-objdump -h -S  firmware_final.elf  > "firmware_final.list"
+arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
    text	   data	    bss	    dec	    hex	filename
-  83290	    100	   2028	  85418	  14daa	firmware_final.elf
+ 212030	     20	   2076	 214126	  3446e	10-6-sine.elf
 Finished building: default.size.stdout
  
-Finished building: firmware_final.list
+Finished building: 10-6-sine.list
  
-13:45:59 **** Incremental Build of configuration Debug for project firmware_final ****
+01:03:05 **** Incremental Build of configuration Debug for project 10-6-sine ****
 make -j12 all 
-arm-none-eabi-size   firmware_final.elf 
+arm-none-eabi-size   10-6-sine.elf 
    text	   data	    bss	    dec	    hex	filename
-  83290	    100	   2028	  85418	  14daa	firmware_final.elf
+ 212030	     20	   2076	 214126	  3446e	10-6-sine.elf
 Finished building: default.size.stdout
  
-13:49:42 **** Incremental Build of configuration Debug for project firmware_final ****
+01:07:16 **** Incremental Build of configuration Debug for project 10-6-sine ****
 make -j12 all 
-arm-none-eabi-size   firmware_final.elf 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:173:9: warning: unused variable 'second' [-Wunused-variable]
+  173 |   char* second = (char*)(0x08005001);
+      |         ^~~~~~
+../Core/Src/main.c:172:9: warning: unused variable 'first' [-Wunused-variable]
+  172 |   char* first = (char*)(0x08005000);
+      |         ^~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Src/main.c: At top level:
+../Core/Inc/MY_CS43L22.h:65:13: warning: 'write_register' declared 'static' but never defined [-Wunused-function]
+   65 | static void write_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/MY_CS43L22.h:66:13: warning: 'read_register' declared 'static' but never defined [-Wunused-function]
+   66 | static void read_register(uint8_t reg, uint8_t *data);
+      |             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "10-6-sine.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Plys\Desktop\ece395\395\10-6-sine\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10-6-sine.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10-6-sine.elf
+ 
+arm-none-eabi-size   10-6-sine.elf 
+arm-none-eabi-objdump -h -S  10-6-sine.elf  > "10-6-sine.list"
    text	   data	    bss	    dec	    hex	filename
-  83290	    100	   2028	  85418	  14daa	firmware_final.elf
+ 209134	     24	   2096	 211254	  33936	10-6-sine.elf
 Finished building: default.size.stdout
  
-13:52:24 **** Incremental Build of configuration Debug for project firmware_final ****
+Finished building: 10-6-sine.list
+ 
+01:07:26 **** Incremental Build of configuration Debug for project 10-6-sine ****
 make -j12 all 
-arm-none-eabi-size   firmware_final.elf 
+arm-none-eabi-size   10-6-sine.elf 
    text	   data	    bss	    dec	    hex	filename
-  83290	    100	   2028	  85418	  14daa	firmware_final.elf
+ 209134	     24	   2096	 211254	  33936	10-6-sine.elf
 Finished building: default.size.stdout
  
-13:55:59 **** Incremental Build of configuration Debug for project firmware_final ****
+01:07:59 **** Incremental Build of configuration Debug for project 10-6-sine ****
 make -j12 all 
-arm-none-eabi-size   firmware_final.elf 
+arm-none-eabi-size   10-6-sine.elf 
    text	   data	    bss	    dec	    hex	filename
-  83290	    100	   2028	  85418	  14daa	firmware_final.elf
-Finished building: default.size.stdout
- 
-13:56:12 **** Incremental Build of configuration Debug for project firmware_final ****
-make -j12 all 
-arm-none-eabi-size   firmware_final.elf 
-   text	   data	    bss	    dec	    hex	filename
-  83290	    100	   2028	  85418	  14daa	firmware_final.elf
+ 209134	     24	   2096	 211254	  33936	10-6-sine.elf
 Finished building: default.size.stdout
  

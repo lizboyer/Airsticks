@@ -1,0 +1,10 @@
+18:35:27 **** Incremental Build of configuration Debug for project firmware_temp ****
+make -j12 all 
+arm-none-eabi-size   firmware_temp.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30076	    192	   2408	  32676	   7fa4	firmware_temp.elf
+Finished building: default.size.stdout
+ 
+
+18:35:27 Build Finished. 0 errors, 0 warnings. (took 277ms)
+

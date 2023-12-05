@@ -1,4 +1,4 @@
-18:12:27 **** Incremental Build of configuration Debug for project 10-6-sine ****
+01:07:59 **** Incremental Build of configuration Debug for project 10-6-sine ****
 make -j12 all 
 arm-none-eabi-size   10-6-sine.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   10-6-sine.elf
 Finished building: default.size.stdout
  
 
-18:12:27 Build Finished. 0 errors, 0 warnings. (took 503ms)
+01:07:59 Build Finished. 0 errors, 0 warnings. (took 468ms)
 

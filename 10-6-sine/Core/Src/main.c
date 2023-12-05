@@ -518,10 +518,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				TIM2->CCR1 = newSample.uBytes[1]; //MSB
 				HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, (newSample.uShort)>>4);
 			}
-
+	}
 	  /* USER CODE END TIM3_IRQn 0 */
 	  /* USER CODE BEGIN TIM3_IRQn 1 */
-	}
+
 	  /* USER CODE END TIM3_IRQn 1 */
 }
 

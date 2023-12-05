@@ -174,10 +174,10 @@ int main(void)
 	{
 		if(xl_r.x_xlr < -0x100) // right
 		{
-			if(xl_r.y_xlr < -0x0000) // right-up
+			if(xl_r.y_xlr < -0x100) // right-up
 			{
 				if(allow_hit_r){
-					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
 				}
 				printf("right-up\n\r");
 				  HAL_TIM_Base_Start_IT(&htim4);
@@ -200,7 +200,7 @@ int main(void)
 			if(xl_r.y_xlr < 0x000) // left-up
 			{
 				if(allow_hit_r){
-					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
 				}
 				printf("left-up\n\r");
 				  HAL_TIM_Base_Start_IT(&htim4);
@@ -209,7 +209,7 @@ int main(void)
 			if(xl_r.y_xlr > 0x100) // left-down
 			{
 				if(allow_hit_r){
-					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
 				}
 				printf("left-down\n\r");
 				  HAL_TIM_Base_Start_IT(&htim4);
@@ -222,19 +222,19 @@ int main(void)
 	{
 		if(xl_l.x_xlr < -0x100) // right
 		{
-			if(xl_l.y_xlr < -0x1000) // right-up
+			if(xl_l.y_xlr < -0x100) // right-up
 			{
 				if(allow_hit_l){
-					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
 				}
 				printf("left right-up\n\r");
 				  HAL_TIM_Base_Start_IT(&htim7);
 				allow_hit_l = 0;
 			}
-			if(xl_l.y_xlr > 0x4800) // right-down
+			if(xl_l.y_xlr > 0x100) // right-down
 			{
 				if(allow_hit_l){
-					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 				}
 				printf("left right-down\n\r");
 				  HAL_TIM_Base_Start_IT(&htim7);
@@ -244,16 +244,16 @@ int main(void)
 
 		if(xl_l.x_xlr > 0x00) // left
 		{
-			if(xl_l.y_xlr < -0x1000) // left-up
+			if(xl_l.y_xlr < 0x0000) // left-up
 			{
 				if(allow_hit_l){
-					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
 				}
 				printf("left left-up\n\r");
 				  HAL_TIM_Base_Start_IT(&htim7);
 				allow_hit_l = 0;
 			}
-			if(xl_l.y_xlr > 0x6000) // left-down
+			if(xl_l.y_xlr > 0x100) // left-down
 			{
 				if(allow_hit_l){
 					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
